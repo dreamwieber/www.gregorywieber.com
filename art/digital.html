@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-7058828-1');
+	</script>
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../style/global.css">
+	<link rel="stylesheet" type="text/css" href="../style/article.css">
+	<link rel="stylesheet" type="text/css" href="../style/gallery.css">
+	<title>Gregory Wieber: Art: Digital</title>
+</head>
+<body>
+<div class="content">
+	<header>
+		<h1><a href="../index.html">Gregory Wieber</a> &rsaquo; <a href="../art.html">Art</a> &rsaquo; Digital</h1>
+	</header>
+	<article class="project">
+
+		<aside>
+			<a href="a-walk-through-latent-space-making-art-with-neural-networks.html"><img src="../assets/images/art/fauvgan.png"/></a>
+
+
+			<p><span class="title">A Walk Through Latent Space</span>, <a href="a-walk-through-latent-space-making-art-with-neural-networks.html">making art with neural networks</a>, 2019.</p>
+		</aside>
+
+		<aside>
+			<img style="width: 30%;" src="../assets/images/art/lorenz.png"/>
+			<img style="width: 30%;" src="../assets/images/art/lorenz-2.png"/>
+			<img style="width: 30%;" src="../assets/images/art/lorenz-3.png"/>
+
+			<p><span class="title">Lorenz Attractor</span>, iOS/MacOS application, 2019.</p>
+		</aside>
+
+		<aside>
+			<video  controls preload="metadata" loop poster="../assets/images/art/fluid.png">
+  			<source src="http://media.gregorywieber.com.s3.amazonaws.com/fluid-1080p.mov" type="video/mp4">
+			</video>
+			<p><span class="title">Fluid Simulation</span>, iOS application, 2019.</p>
+		</aside>
+
+			<p>The interactive fluid simulation and 'Lorenz Attractor' above are part of a series of experiments I've been making 
+			in Apple Metal &mdash; a programming framework for low-level, real-time graphics on the Apple line of GPUs.</p>
+			<p>At this level, you're basically writing bytes directly to the graphics card. The physics in the fluid simulation above &mdash; a classic "heightfield" solver &mdash; happen in what's called a Compute Shader, which runs on the GPU. This project was challenging, but rewarding. The advantage of working close to the metal is incredible performance &mdash; hundreds of thousands of points, processed in real time.</p>
+			<p>The Lorenz Attractor simulation &mdash; based on a set of differential equations from Chaos Theory &mdash; consists of one million particles, animated in real-time, once again using Metal Compute Shaders to get the most horsepower.</p>
+			<p>I spent years making 'offline' computer graphics, in which a single image could take hours or even days to render. Working in real-time graphics shares the same underlying mathematics, but in many ways is an entirely different art. What fascinates me the most about real-time graphics is the type of human-computer interactions it affords. When you find ways to optimize graphics so that people can interact with them in real-time, a whole new world opens up &mdash; something people are discovering with the resurgence of virtual reality.</p>
+			<p><span class="title">Fluid Simulation</span>, iOS application, 2019.</p>
+		</aside>
+		<aside>
+			<img src="../assets/images/art/wireframe-1.png"/>
+			<p><span class="title">Figure</span>, <a href="https://en.wikipedia.org/wiki/Subdivision_surface">Subdivision Surface</a> Model in Maya, 2007</p>
+		</aside>
+		<p>I sculpted this model around 2007, over several months time. It began as a simple cube, which was extruded and shaped into the rough proportions of the figure. The model was then smoothed by subdividing the mesh into more contour lines, which were sculpted in finer detail. The process of sculpting, subdividing, and refining was repeated several times.</p>
+		<aside>
+			<img src="../assets/images/art/wireframe.png"/>
+			<p><span class="title">Figure: Detail</span>, Subdivision Surface Model in Maya, 2007</p>
+		</aside>
+	</article>
+</div>
+</body>
+</html>
