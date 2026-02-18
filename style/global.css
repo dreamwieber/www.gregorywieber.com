@@ -1,0 +1,155 @@
+body {
+/*font-family: 'Space Mono', monospace;*/
+font-family: 'Avenir', 'Helvetica', sans-serif;
+}
+
+/*@media screen and (max-device-width: 480px){
+    .content {
+    	width: 100%;
+    	margin:0;
+    	padding: 0;
+    	-webkit-text-size-adjust:200%;
+    }
+
+    .image-link-grid {
+		grid-template-columns: 128pt 128pt 128pt 128pt;
+
+	//justify-content: center; 
+	}
+
+}
+*/
+
+.content {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left:16pt;
+	padding-right:16pt;
+	margin-top: 72pt;
+	max-width: 48em;
+	padding-bottom: 64pt;
+}
+
+header {
+	margin-bottom: 44pt;
+}
+
+p {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 32em;
+	font-size: 14pt;
+	line-height: 1.5;	
+	/*font-family: Georgia;*/
+}
+
+h1, h2, h3, h4 {
+	/*font-family: "Palatino";*/
+	font-weight: 100;
+}
+
+h4.new {
+	margin-top: -3em;
+	margin-bottom: 3em;
+}
+
+header {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 30em;
+	text-align: center;
+}
+
+
+.title {
+	font-style: italic;
+}
+
+
+ul.link-list {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	width: 100%;
+}
+
+.link-list li {
+	font-size: 12pt;
+	margin-bottom: 1em;
+}
+
+.link-list a {
+	text-decoration: none;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header h1 {
+	font-size: 16pt;
+}
+
+a:link {
+	color: #0073ee;
+}
+
+a:visited {
+	color: #19458b;
+}
+
+
+/* OLD */
+
+.image-link-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 16pt;
+	margin-top: 24pt;
+	margin-bottom: 48pt;
+	width: 100%;
+	justify-content: center;
+	/*justify-content: center; */
+}
+
+@media screen and (max-width: 480px){
+   .image-link-grid {
+	grid-template-columns: 1fr 1fr;
+
+   }
+}
+
+
+.image-link-grid h3 {
+	text-align: center;
+	width: 100%;
+	margin-top: 4pt;
+}
+
+.image-link-grid div {
+	cursor: pointer;
+}
+
+.image-link-grid div a {
+	text-decoration: none;
+	color: black;
+}
+
+
+.image-link-grid img {
+	width: 100%;
+	/*box-sizing: border-box;
+	-webkit-transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+ 	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+ 	-moz-box-shadow: 0px 0px 0px #999;
+    -webkit-box-shadow: 0px 0px 0px #999;
+    box-shadow: 0px 0px 0px #999;*/
+}
+
+/*.image-link-grid div:hover img {
+    -moz-box-shadow: 2px 2px 8px #999;
+    -webkit-box-shadow: 2px 2px 8px #999;
+    box-shadow: 2px 2px 8px #999;
+    transform: scale(1.025,1.025);
+}*/
