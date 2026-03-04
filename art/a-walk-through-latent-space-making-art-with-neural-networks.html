@@ -1,65 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Walk Through Latent Space — Gregory Wieber</title>
+  <meta name="description" content="Making art with neural networks. Exploring the Fauvist dreams of a generative adversarial network.">
 
-	  gtag('config', 'UA-7058828-1');
-	</script>
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../style/global.css">
-	<link rel="stylesheet" type="text/css" href="../style/article.css">
-	<link rel="stylesheet" type="text/css" href="../style/gallery.css">
-	<link rel="stylesheet" href="../style/prism.css"  />
-	<title>A Walk Through Latent Space: Making Art With Neural Networks</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-7058828-1');
+  </script>
+
+  <link rel="stylesheet" href="../style/redesign.css">
 </head>
-<body>
-<div class="content">
-	<header>
-		<h1>A Walk Through Latent Space: Making Art With Neural Networks</h1>
-		<h4>by <a href="../index.html">Gregory Wieber</a></h4>
-	</header>
-	<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/fauvgan.png">
-  			<source src="https://storage.googleapis.com/dreamwieber-fauvgan/latent-walk.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">The Fauvist dreams of a neural network</span>.</p>
-		</aside>
+<body class="page-project">
 
-		<p>These are not a paintings. At least not in the normal sense of the word. They are machine hallucinations, produced by a neural network that was trained on a dataset of Fauvist art &mdash; a group of french artists at the turn of the 20th century, who influenced modern masters like Picasso.</p>
+  <header class="site-header">
+    <a href="/" class="wordmark">Gregory Wieber</a>
+    <nav class="site-nav">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="../apps.html">Apps</a>
+      <a href="../bio.html">About</a>
+    </nav>
+  </header>
 
-		<aside>
-			<img src="../assets/images/art/transfer-learning.gif"/>
-			<p><span class="title">Transfer learning</span>. Result of one iteration of training with Fauvist dataset on top of a classical art model, using the same latent seed.</p>
+  <div class="article-content">
+    <a href="/" class="project-back">Home</a>
+    <div class="article-header">
+      <h1>A Walk Through Latent Space: Making Art with Neural Networks</h1>
+      <p class="article-date">2019</p>
+    </div>
 
-		</aside>
+    <div class="article-body">
+      <figure>
+        <video controls preload="metadata" loop poster="../assets/images/art/fauvgan.png">
+          <source src="https://storage.googleapis.com/dreamwieber-fauvgan/latent-walk.mp4" type="video/mp4">
+        </video>
+        <figcaption>The Fauvist dreams of a neural network.</figcaption>
+      </figure>
 
+      <p>These are not paintings. At least not in the normal sense of the word. They are machine hallucinations, produced by a neural network that was trained on a dataset of Fauvist art — a group of French artists at the turn of the 20th century, who influenced modern masters like Picasso.</p>
 
-<p>The Fauvist school was itself hallucinatory, with its bright colors and abstract compositions, fueled by absinthe and the natural beauty of Provence. This style lends well to a neural network generative approach, which produces images that feel like a hallucination, or a dream. What are these places, these people, these paintings? They feel familiar, like the neural net has captured not just an aesthetic, but memories of the past. </p>
+      <figure>
+        <img src="../assets/images/art/transfer-learning.gif" alt="Transfer learning comparison">
+        <figcaption>Transfer learning. Result of one iteration of training with Fauvist dataset on top of a classical art model, using the same latent seed.</figcaption>
+      </figure>
 
-<p>The number of Fauvist paintings is limited, so transfer learning was used &mdash; where a model that has already been trained on a wide range of generic art (<a href="https://github.com/parameter-pollution/stylegan_paintings">stylegan-paintings</a>) was used as a jumping-off point for continued training with the Fauvist image dataset. In this sense, this process mirrored the Fauves themselves &mdash; building on a base of classic art training, and riffing off the styles of their contemporaries. In the GIF above you can see the original model contrasted with the result of the transfer learning. In both models, the latent space is similarly organized &mdash; you can see a boy, a woman, a grove of trees, all in similar locations in the grid. This is not 'enforced' in any way &mdash; it is <em>learned</em> by the neural network as it ingests thousands of images. To me, one of the most fascinating outcomes is how quickly the transfer learning worked to make the original net's output look like Fauvist paintings; a classical looking woman becomes a woman who would not look out of place drinking absinthe in a french cafe circa 1880. </p>
+      <p>The Fauvist school was itself hallucinatory, with its bright colors and abstract compositions, fueled by absinthe and the natural beauty of Provence. This style lends well to a neural network generative approach, which produces images that feel like a hallucination, or a dream. What are these places, these people, these paintings? They feel familiar, like the neural net has captured not just an aesthetic, but memories of the past.</p>
 
+      <p>The number of Fauvist paintings is limited, so transfer learning was used — where a model that has already been trained on a wide range of generic art (<a href="https://github.com/parameter-pollution/stylegan_paintings">stylegan-paintings</a>) was used as a jumping-off point for continued training with the Fauvist image dataset. In this sense, this process mirrored the Fauves themselves — building on a base of classic art training, and riffing off the styles of their contemporaries. In the GIF above you can see the original model contrasted with the result of the transfer learning. In both models, the latent space is similarly organized — you can see a boy, a woman, a grove of trees, all in similar locations in the grid. This is not 'enforced' in any way — it is <em>learned</em> by the neural network as it ingests thousands of images. To me, one of the most fascinating outcomes is how quickly the transfer learning worked to make the original net's output look like Fauvist paintings; a classical looking woman becomes a woman who would not look out of place drinking absinthe in a French cafe circa 1880.</p>
 
-		<aside>
-			<img src="../assets/images/art/fauv-0.jpg"/>
-		</aside>
-		<aside>
-			<img src="../assets/images/art/fauv-1.jpg"/>
-		</aside>
-		<aside>
-			<img src="../assets/images/art/fauv-4.jpg"/>
-		</aside>
-		
-		<p>Like this work? <a href="https://instagram.com/dreamwieber">Follow me on instagram</a> for more.
+      <figure>
+        <img src="../assets/images/art/fauv-0.jpg" alt="Neural network Fauvist painting">
+      </figure>
 
-	</article>
-</div>
-<script src="../js/prism.js"></script>
+      <figure>
+        <img src="../assets/images/art/fauv-1.jpg" alt="Neural network Fauvist painting">
+      </figure>
+
+      <figure>
+        <img src="../assets/images/art/fauv-4.jpg" alt="Neural network Fauvist painting">
+      </figure>
+
+      <p>Like this work? <a href="https://instagram.com/dreamwieber">Follow me on Instagram</a> for more.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p class="footer-name">Gregory Wieber</p>
+      <p class="footer-email"><a href="mailto:hello@apposite.ai">hello@apposite.ai</a></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="https://apposite.ai">Apposite</a>
+      <a href="https://www.instagram.com/dreamwieber/">Instagram</a>
+      <span class="footer-year">2026</span>
+    </div>
+  </footer>
+
 </body>
 </html>
