@@ -1,91 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiments — Gregory Wieber</title>
+  <meta name="description" content="Generative art experiments in Apple Metal. GPU compute shaders, flocking algorithms, cellular automata, and n-body simulations.">
 
-	  gtag('config', 'UA-7058828-1');
-	</script>
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../style/global.css">
-	<link rel="stylesheet" type="text/css" href="../style/article.css">
-	<link rel="stylesheet" type="text/css" href="../style/gallery.css">
-	<title>Gregory Wieber: Art: Digital</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-7058828-1');
+  </script>
+
+  <link rel="stylesheet" href="../style/redesign.css">
 </head>
-<body>
-<div class="content">
-	<header>
-		<h1><a href="../index.html">Gregory Wieber</a> &rsaquo; Experiments</h1>
-		<p>The following are pieces generated in Apple's Metal Framework. Metal, like OpenGL, is a programming interface / shading language for controling a graphics card (GPU). GPU's require a different approach to coding; they're more limited in what they can do than a CPU, but they can do many simple things in parallel. I've always been interested in generative or algorithmic art, wherein simple rules can produce complex phenomena. Harnessing the GPU allows for some fairly complex systems to emerge &mdash; even on a relatively entry-level device like a Macbook or an iPhone.</p> 
-	</header>
-	<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-murmuration.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/murmuration_1.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">Murmuration</span></p>
-			<p>A flocking algorithm wherein each element attempts to align itself to every other element, steer towards the center of the flock, and avoid coliding with other elements. This is an n-body problem with exponential complexity. A parallel processing approach was adapted from an NVIDIA Cuda paper to work in the Metal Shading Language. It works by efficiently coordinating memory access on the GPU as each element compares itself to each other element.</p>
-		</aside>
+<body class="page-project">
 
-	</article>
-	<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-blobby.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/blobby_1.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">Isosurface</span></p>
-			<p>Implementation of Marching Cubes algorithm in a Metal Compute Shader. The algorithm takes a field of points &mdash; a kind of energy field (or 'Gaussian Potential Field') &mdash; and generates a polygonal surface. A chrome map approach was used to simulate reflectivity, and the n-body algorithm used in my other experiements provides the gravitational attraction / animation.</p>
-		</aside>
+  <header class="site-header">
+    <a href="/" class="wordmark">Gregory Wieber</a>
+    <nav class="site-nav">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="../apps.html">Apps</a>
+      <a href="../bio.html">About</a>
+    </nav>
+  </header>
 
-	</article>
+  <div class="gallery-page">
+    <a href="/" class="project-back">Home</a>
+    <h1>Experiments</h1>
+    <p class="gallery-intro">Pieces generated in Apple's Metal Framework. Metal, like OpenGL, is a programming interface and shading language for controlling a graphics card. GPUs require a different approach to coding; they're more limited in what they can do than a CPU, but they can do many simple things in parallel. I've always been interested in generative or algorithmic art, wherein simple rules can produce complex phenomena. Harnessing the GPU allows for some fairly complex systems to emerge — even on a relatively entry-level device like a MacBook or an iPhone.</p>
 
-		
+    <div class="gallery-grid single-col">
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-murmuration.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/murmuration_1.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Murmuration</p>
+          <p class="gallery-desc">A flocking algorithm wherein each element attempts to align itself to every other element, steer towards the center of the flock, and avoid colliding with other elements. This is an n-body problem with exponential complexity. A parallel processing approach was adapted from an NVIDIA CUDA paper to work in the Metal Shading Language.</p>
+        </figcaption>
+      </figure>
 
-		<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-cellular.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/cellular_1.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">Cellular</span></p>
-			<p>A 3D implementation of Cellular Automata. Similar to Conway's "Game of Life", but in three dimensions, with slightly different 'rules'. A 3D texture defines whether a given cell is alive or dead, and a compute shader is used to evaluate each cell at every step of the simulation. Ambient Occlusion was implemented to self-shade elements that are closer towards the center of the cube.</p>
-		</aside>
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-blobby.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/blobby_1.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Isosurface</p>
+          <p class="gallery-desc">Implementation of Marching Cubes algorithm in a Metal Compute Shader. The algorithm takes a field of points — a kind of energy field (or 'Gaussian Potential Field') — and generates a polygonal surface. A chrome map approach was used to simulate reflectivity, and the n-body algorithm provides the gravitational attraction and animation.</p>
+        </figcaption>
+      </figure>
 
-	</article>
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-cellular.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/cellular_1.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Cellular</p>
+          <p class="gallery-desc">A 3D implementation of Cellular Automata. Similar to Conway's "Game of Life", but in three dimensions, with slightly different rules. A 3D texture defines whether a given cell is alive or dead, and a compute shader evaluates each cell at every step of the simulation. Ambient Occlusion self-shades elements closer to the center of the cube.</p>
+        </figcaption>
+      </figure>
 
-		<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-lines.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/lines_1.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">Lines</span></p>
-			<p>Music video for Henri Bergman's track "Nexus". A video stream of a dancer displaces an array of line. Real-time audio processing of the track's frequencies influences the displacement.</p>
-		</aside>
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-lines.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/lines_1.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Lines</p>
+          <p class="gallery-desc">Music video for Henri Bergman's track "Nexus". A video stream of a dancer displaces an array of lines. Real-time audio processing of the track's frequencies influences the displacement.</p>
+        </figcaption>
+      </figure>
 
-		</article>
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-interference.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/Interference.mov" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Interference</p>
+          <p class="gallery-desc">Music video for Henri Bergman's track "Interference". Implementation of a Lorenz Attractor. As the simulation progresses, the points slowly transition into a moving portrait of Henri. A Metal Compute Shader evaluates the Lorenz Attractor, and a texture map of a live video stream is used to morph the particles.</p>
+        </figcaption>
+      </figure>
 
-		<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-interference.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/Interference.mov" type="video/mp4">
-			</video>
-			<p><span class="title">Interference</span></p>
-			<p>Music video for Henri Bergman's track "Interference". Implementation of a Lorenz Attractor. As the simulation progresses, the points slowly transition into a moving portrait of Henri. A Metal Compute Shader evaluates the Lorenz Attactor, and a texture map of a live video stream of Henri is used to morph the particles.</p>
-		</aside>
-	</article>
-	<article class="project">
-		<aside>
-			<video  controls preload="metadata" loop poster="../assets/images/art/experiments-nbody.jpg">
-  			<source src="https://d1w75jisb8fw0q.cloudfront.net/nbody_1.mp4" type="video/mp4">
-			</video>
-			<p><span class="title">Galaxies</span></p>
-			<p>N-body simulation wherein each particle is gravitationally attracted to each other particle. Typically this type of exponentially complex simulation will grind the GPU to a halt due to memory access conflicts. An efficient parallel processing algorithm was adapted from an NVIDIA paper into Apple's Metal Shading Language. This algorithm has been subsequently used in many of my other experiments.</p>
-		</aside>
-	</article>
-</div>
+      <figure class="gallery-item">
+        <video controls preload="metadata" loop poster="../assets/images/art/experiments-nbody.jpg">
+          <source src="https://d1w75jisb8fw0q.cloudfront.net/nbody_1.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <p class="gallery-title">Galaxies</p>
+          <p class="gallery-desc">N-body simulation wherein each particle is gravitationally attracted to each other particle. An efficient parallel processing algorithm was adapted from an NVIDIA paper into Apple's Metal Shading Language. This algorithm has been subsequently used in many of my other experiments.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p class="footer-name">Gregory Wieber</p>
+      <p class="footer-email"><a href="mailto:hello@apposite.ai">hello@apposite.ai</a></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="https://apposite.ai">Apposite</a>
+      <a href="https://www.instagram.com/dreamwieber/">Instagram</a>
+      <span class="footer-year">2026</span>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -226,13 +226,22 @@ body {
 .work-card:nth-child(7) { grid-column: span 4; }
 .work-card:nth-child(8) { grid-column: span 4; }
 /* Surprise cards injected by JS */
-.work-card:nth-child(9) { grid-column: span 5; }
-.work-card:nth-child(10) { grid-column: span 7; }
+.work-card:nth-child(9) { grid-column: span 4; }
+.work-card:nth-child(10) { grid-column: span 4; }
 
 /* Card styles */
 .work-card {
   position: relative;
   overflow: hidden;
+}
+
+/* Align shorter cards to bottom of row — creates tension, not gaps */
+.work-card:nth-child(2) {
+  align-self: end;
+}
+
+.work-card:nth-child(3) {
+  align-self: end;
 }
 
 .work-card a {
@@ -574,22 +583,22 @@ body {
    Project Detail Pages
    =================================================== */
 .project-hero {
-  width: 100%;
-  max-height: 560px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
   overflow: hidden;
 }
 
 .project-hero img {
   width: 100%;
-  height: 100%;
-  max-height: 560px;
-  object-fit: cover;
+  border-radius: 4px;
 }
 
 .project-hero-placeholder {
   width: 100%;
-  height: 320px;
+  aspect-ratio: 16 / 9;
   background: var(--dark);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -636,6 +645,37 @@ body {
   margin-bottom: 20px;
 }
 
+.project-body a {
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.2s ease;
+}
+
+.project-body a:hover {
+  border-color: var(--text);
+}
+
+.project-body figure {
+  margin: 40px 0;
+}
+
+.project-body figure img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.project-body figure figcaption {
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.project-body .video-embed {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 .project-cta {
   display: inline-flex;
   align-items: center;
@@ -679,18 +719,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  .project-hero {
-    max-height: 300px;
-  }
-
-  .project-hero img {
-    max-height: 300px;
-  }
-
-  .project-hero-placeholder {
-    height: 200px;
-  }
-
   .project-content {
     padding: 40px var(--gutter) 64px;
   }
@@ -728,6 +756,14 @@ body {
   color: var(--text-secondary);
   letter-spacing: 0.02em;
   margin-top: 16px;
+}
+
+.article-note {
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 .article-body {
@@ -777,7 +813,7 @@ body {
 }
 
 .article-body figure img {
-  width: 100%;
+  max-width: 100%;
   border-radius: 4px;
 }
 
@@ -872,5 +908,293 @@ body {
   .bio-links {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+/* ===================================================
+   Index / Listing Pages (Apps, Art, Writing)
+   =================================================== */
+.index-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 96px;
+}
+
+.index-page .project-back {
+  margin-bottom: 24px;
+}
+
+.index-page h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.index-page .index-intro {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.index-card a {
+  display: block;
+}
+
+.index-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.4s ease;
+}
+
+.index-card a:hover img {
+  transform: scale(1.02);
+}
+
+.index-card h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 12px;
+}
+
+.index-card .index-card-meta {
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Writing index — stacked list, not cards */
+.writing-index {
+  margin-top: 56px;
+}
+
+.writing-index-group {
+  margin-bottom: 48px;
+}
+
+.writing-index-group h2 {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.writing-index-item a {
+  display: block;
+  padding: 16px 0;
+  border-top: 1px solid #e0e0dc;
+  transition: border-color 0.2s ease;
+}
+
+.writing-index-item:last-child a {
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.writing-index-item a:hover {
+  border-color: var(--text);
+}
+
+.writing-index-item .writing-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.writing-index-item .writing-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .index-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .index-page {
+    padding: 32px var(--gutter) 64px;
+  }
+
+  .index-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ===================================================
+   Gallery Pages (Art)
+   =================================================== */
+.gallery-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px var(--gutter) 96px;
+}
+
+.gallery-page .project-back {
+  margin-bottom: 24px;
+}
+
+.gallery-page h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.gallery-page .gallery-intro {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+.gallery-page .gallery-intro p + p {
+  margin-top: 16px;
+}
+
+.gallery-page .gallery-intro a {
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.2s ease;
+}
+
+.gallery-page .gallery-intro a:hover {
+  border-color: var(--text);
+}
+
+.gallery-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.gallery-grid.single-col {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.gallery-item img {
+  max-height: 420px;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.gallery-item figcaption {
+  margin-top: 12px;
+}
+
+.gallery-item .gallery-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.gallery-item .gallery-meta {
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.gallery-item .gallery-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.gallery-item .gallery-desc a {
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.2s ease;
+}
+
+.gallery-item .gallery-desc a:hover {
+  border-color: var(--text);
+}
+
+/* Triptych — 3-up image grid within a gallery item */
+.gallery-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* Subsequent gallery sections — spaced from the one above */
+.gallery-grid + .gallery-grid {
+  margin-top: 56px;
+}
+
+/* Gallery section embedded within an article (no top padding) */
+.gallery-page.gallery-inline {
+  padding-top: 0;
+}
+
+/* Article continuation after an inline gallery */
+.article-content.article-continued {
+  padding-top: 24px;
+}
+
+/* Responsive video embed */
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .gallery-page {
+    padding: 32px var(--gutter) 64px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }

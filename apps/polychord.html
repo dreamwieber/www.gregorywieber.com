@@ -1,58 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polychord — Gregory Wieber</title>
+  <meta name="description" content="An iPad music-making app. Featured by Apple, one of the top selling music apps on iTunes.">
 
-	  gtag('config', 'UA-7058828-1');
-	</script>
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../style/global.css">
-	<link rel="stylesheet" type="text/css" href="../style/article.css">
-	<title>Gregory Wieber: Apps: Polychord</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-7058828-1');
+  </script>
+
+  <link rel="stylesheet" href="../style/redesign.css">
 </head>
-<body>
-<div class="content">
-	<header>
-		<h1><a href="../index.html">Gregory Wieber</a> &rsaquo; <a href="../apps.html">Apps</a> &rsaquo; Polychord</h1>
-	</header>
-	<article class="project">
-		<aside class="fill">
-			<a href="http://polychordapp.com"><img src="../assets/images/apps/polychord.png"/></a>
-		</aside>
-		<p class="intro">I designed and engineered Polychord &mdash; an iPad music-making app &mdash; in 2010. Shortly thereafter it was featured by Apple. It went on to become one of the top selling music apps on iTunes.</p>
-		
-		<p class="fill">You play Polychord by pressing one of the chord circles, and sliding your finger along the 'strum keys'. The chords are all in the same musical key, so you can button mash and still sound good. For experienced song writers, it's a way to explore and come up with new ideas.</p>
-		<p class="fill">One of Polychord's biggest strengths is that it can play other digital instruments through MIDI &mdash; a standard for connecting synthesizers and drum machines.</p>
-		<aside class="">
-			<img src="../assets/images/apps/polychord-chords.jpg"/>
-			<!--<img src="../assets/images/apps/polychord-adsr.jpg"/>-->
-			<p class=""><span class="title">Ancient Artifacts</span>, early UI explorations</p>
-		</aside>
-		<p class="fill">Polychord was one of the earliest iPad apps, which meant everything would be made from scratch. The sound synthesis engine proved challenging, leading me into the low-level depths of Core Audio so that I could squeeze every bit of performance out of the first-gen iPad.</p>
-		<p class="fill">Design happened in parallel to engineering, and was iterative. I would sketch a layout, sometimes mock something in Photoshop, and get a rough version working in code as soon as possible. After showing it to people, I'd learn what worked and what didn't, and the process repeated.</p>
-		<aside>
-			<div class="embed-container">
-				<iframe src="https://player.vimeo.com/video/16518652" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			</div>
-			<p class=""><span class="title">Poly Song</span>, very first demo video of polychord</p>
-		</aside>
+<body class="page-project">
 
-		<p>Building the initial version took about six months. Then I had to distribute it to the App Store, market it, build a website, and maintain the app through updates.</p>
-		<aside class="fill">
-			<img src="../assets/images/apps/polychord_band.jpg"/>
-			<!--<img src="../assets/images/apps/polychord1.jpg"/>-->
-			<p class=""><span class="title">Retro</span>, early marketing inspired by 70s print ads</p>
-		</aside>
-		<p>Polychord is used today by musicians around the world. Some completely new to music, and some looking for songwriting inspiration. My friend <a href="https://www.avclub.com/composer-jesse-novak-takes-us-through-bojack-horseman-s-1820195331">Jesse Novak</a> slipped some Polychord tunes into a no-dialogue episode of BoJack Horseman.</p>
-		<p>Development on Polychord continues. Learn more on <a href="http://polychordapp.com">polychordapp.com</a></p>
+  <header class="site-header">
+    <a href="/" class="wordmark">Gregory Wieber</a>
+    <nav class="site-nav">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="../apps.html">Apps</a>
+      <a href="../bio.html">About</a>
+    </nav>
+  </header>
 
-	</article>
-</div>
+  <div class="project-hero">
+    <img src="../assets/images/apps/polychord.png" alt="Polychord for iPad">
+  </div>
+
+  <div class="project-content">
+    <a href="/" class="project-back">Home</a>
+    <h1>Polychord</h1>
+    <p class="project-meta">App — iPad, Music</p>
+    <div class="project-body">
+      <p>I designed and engineered Polychord — an iPad music-making app — in 2010. Shortly thereafter it was featured by Apple. It went on to become one of the top selling music apps on iTunes.</p>
+
+      <p>You play Polychord by pressing one of the chord circles, and sliding your finger along the 'strum keys'. The chords are all in the same musical key, so you can button mash and still sound good. For experienced songwriters, it's a way to explore and come up with new ideas.</p>
+
+      <p>One of Polychord's biggest strengths is that it can play other digital instruments through MIDI — a standard for connecting synthesizers and drum machines.</p>
+
+      <figure>
+        <img src="../assets/images/apps/polychord-chords.jpg" alt="Polychord early UI explorations">
+        <figcaption>Ancient Artifacts — early UI explorations</figcaption>
+      </figure>
+
+      <p>Polychord was one of the earliest iPad apps, which meant everything would be made from scratch. The sound synthesis engine proved challenging, leading me into the low-level depths of Core Audio so that I could squeeze every bit of performance out of the first-gen iPad.</p>
+
+      <p>Design happened in parallel to engineering, and was iterative. I would sketch a layout, sometimes mock something in Photoshop, and get a rough version working in code as soon as possible. After showing it to people, I'd learn what worked and what didn't, and the process repeated.</p>
+
+      <figure>
+        <div class="video-embed">
+          <iframe src="https://player.vimeo.com/video/16518652" allowfullscreen></iframe>
+        </div>
+        <figcaption>Poly Song — very first demo video of Polychord</figcaption>
+      </figure>
+
+      <p>Building the initial version took about six months. Then I had to distribute it to the App Store, market it, build a website, and maintain the app through updates.</p>
+
+      <figure>
+        <img src="../assets/images/apps/polychord_band.jpg" alt="Polychord retro marketing">
+        <figcaption>Retro — early marketing inspired by 70s print ads</figcaption>
+      </figure>
+
+      <p>Polychord is used today by musicians around the world. Some completely new to music, and some looking for songwriting inspiration. My friend <a href="https://www.avclub.com/composer-jesse-novak-takes-us-through-bojack-horseman-s-1820195331">Jesse Novak</a> slipped some Polychord tunes into a no-dialogue episode of BoJack Horseman.</p>
+    </div>
+    <a href="http://polychordapp.com" class="project-cta">polychordapp.com</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p class="footer-name">Gregory Wieber</p>
+      <p class="footer-email"><a href="mailto:hello@apposite.ai">hello@apposite.ai</a></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="https://apposite.ai">Apposite</a>
+      <a href="https://www.instagram.com/dreamwieber/">Instagram</a>
+      <span class="footer-year">2026</span>
+    </div>
+  </footer>
+
 </body>
 </html>
