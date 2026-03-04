@@ -19,8 +19,8 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
+  <!-- Sticky Header (hidden until scroll) -->
+  <header class="site-header" id="site-header">
     <a href="/" class="wordmark">Gregory Wieber</a>
     <nav class="site-nav">
       <a href="https://youtube.com/@dreamwieber">YouTube</a>
@@ -30,9 +30,16 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <h1 class="hero-name">Gregory<br>Wieber</h1>
-    <p class="hero-tagline">Spatial software. Immersive worlds. Indie studio in the Pacific Northwest.</p>
+    <div class="hero-intro">
+      <p class="hero-tagline">Spatial software. Immersive worlds. Indie studio in the Pacific Northwest.</p>
+      <nav class="hero-nav">
+        <a href="https://youtube.com/@dreamwieber">YouTube</a>
+        <a href="apps.html">Apps</a>
+        <a href="bio.html">About</a>
+      </nav>
+    </div>
   </section>
 
   <!-- Featured Work -->
@@ -42,7 +49,7 @@
 
       <!-- 01 — Vibescape -->
       <div class="work-card">
-        <a href="https://apposite.ai/vibescape">
+        <a href="apps/vibescape.html">
           <img class="work-card-image" src="assets/images/vibescape.jpeg" alt="Vibescape for Vision Pro">
         </a>
         <p class="work-card-label">01 — Vibescape, Vision Pro</p>
@@ -50,17 +57,15 @@
 
       <!-- 02 — The Story of HyperCard -->
       <div class="work-card">
-        <a href="https://youtube.com/@dreamwieber">
-          <div class="work-card-placeholder">
-            <span class="placeholder-title">The Story of HyperCard</span>
-          </div>
+        <a href="writing/hypercard.html">
+          <img class="work-card-image yt-thumb" src="assets/images/hypercard-thumb.png" alt="The Story of HyperCard">
         </a>
         <p class="work-card-label">02 — YouTube, Tech History</p>
       </div>
 
       <!-- 03 — SageBrush: AI Painter -->
       <div class="work-card">
-        <a href="https://apposite.ai">
+        <a href="apps/sagebrush.html">
           <img class="work-card-image" src="assets/images/sagebrush-hero.png" alt="SageBrush AI Painter">
         </a>
         <p class="work-card-label">03 — SageBrush, AI Painter</p>
@@ -68,7 +73,7 @@
 
       <!-- 04 — Hum to Search -->
       <div class="work-card">
-        <a href="#">
+        <a href="apps/hum-to-search.html">
           <div class="work-card-placeholder">
             <span class="placeholder-title">Hum to Search Visualizer</span>
           </div>
@@ -86,7 +91,7 @@
 
       <!-- 06 — Fake Shapes Music Video -->
       <div class="work-card">
-        <a href="https://www.youtube.com/watch?v=_GJINmKcYAM">
+        <a href="art/fake-shapes.html">
           <img class="work-card-image" src="assets/images/tmp-ginormous.png" alt="Fake Shapes music video for Ginormous">
         </a>
         <p class="work-card-label">06 — Music Video, Ginormous</p>
@@ -102,7 +107,7 @@
 
       <!-- 08 — Google Search Pinball -->
       <div class="work-card">
-        <a href="#">
+        <a href="apps/search-pinball.html">
           <div class="work-card-placeholder">
             <span class="placeholder-title">Google Search Pinball</span>
           </div>
@@ -152,6 +157,72 @@
       </div>
     </div>
   </section>
+
+  <!-- Surprise Cards — random art on each reload -->
+  <script>
+    (function () {
+      var surprises = [
+        { src: 'assets/images/art/pixel-watts.png', label: 'Pixel Art, Alan Watts', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/pixel-pnw.png', label: 'Pixel Art, Pacific NW', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/pixel-moog.png', label: 'Pixel Art, Minimoog', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/pixel-nakashima.png', label: 'Pixel Art, Workshop', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/pixel-snow.png', label: 'Pixel Art, Storm', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/pixel-dojo.png', label: 'Pixel Art, Dojo', href: 'art/pixel-art.html' },
+        { src: 'assets/images/art/lorenz.png', label: 'Lorenz Attractor', href: 'art/digital.html' },
+        { src: 'assets/images/art/lorenz-2.png', label: 'Strange Attractor', href: 'art/digital.html' },
+        { src: 'assets/images/art/fauv-0.jpg', label: 'Neural Network Painting', href: 'art/a-walk-through-latent-space-making-art-with-neural-networks.html' },
+        { src: 'assets/images/art/fauv-5.jpg', label: 'GAN Landscape', href: 'art/a-walk-through-latent-space-making-art-with-neural-networks.html' },
+        { src: 'assets/images/art/waterhouse.png', label: 'Figure Study', href: 'art/traditional.html' },
+        { src: 'assets/images/art/louvre-2.png', label: 'Louvre Study', href: 'art/traditional.html' },
+        { src: 'assets/images/art/experiments-murmuration.jpg', label: 'Murmuration Sim', href: 'art/experiments.html' },
+        { src: 'assets/images/art/experiments-cellular.jpg', label: 'Cellular Automata', href: 'art/experiments.html' },
+        { src: 'assets/images/art/experiments-nbody.jpg', label: 'N-Body Galaxy', href: 'art/experiments.html' },
+      ];
+
+      // Shuffle and pick 2
+      for (var i = surprises.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = surprises[i]; surprises[i] = surprises[j]; surprises[j] = tmp;
+      }
+      var picks = surprises.slice(0, 2);
+
+      var grid = document.querySelector('.work-grid');
+      if (!grid) return;
+
+      var num = grid.children.length;
+      picks.forEach(function (item, i) {
+        var card = document.createElement('div');
+        card.className = 'work-card';
+        card.innerHTML =
+          '<a href="' + item.href + '">' +
+            '<img class="work-card-image" src="' + item.src + '" alt="' + item.label + '">' +
+          '</a>' +
+          '<p class="work-card-label">' + String(num + i + 1).padStart(2, '0') + ' — ' + item.label + '</p>';
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+
+  <!-- Scroll-triggered sticky header -->
+  <script>
+    (function () {
+      var header = document.getElementById('site-header');
+      var hero = document.getElementById('hero');
+      if (!header || !hero) return;
+
+      function onScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom <= 0) {
+          header.classList.add('visible');
+        } else {
+          header.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer">
