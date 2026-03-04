@@ -1,58 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art — Gregory Wieber</title>
+  <meta name="description" content="Art by Gregory Wieber. Digital, traditional, pixel art, and generative experiments.">
 
-	  gtag('config', 'UA-7058828-1');
-	</script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style/global.css">
-	<link rel="stylesheet" type="text/css" href="style/gallery.css">
-	<title>Gregory Wieber: Apps</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7058828-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-7058828-1');
+  </script>
+
+  <link rel="stylesheet" href="style/redesign.css">
 </head>
-<body>
-<div class="content">
-	<header>
-		<h1><a href="index.html">Gregory Wieber</a> &rsaquo; Art</h1>
-	</header>
-	<div class="image-link-grid" style="grid-template-columns: 1fr 1fr 1fr">
-		<div>
-			<a href="art/digital.html">
-				<img src="assets/images/art/lorenz-2-thumb.png"/>
-				<h3>Digital</h3>
-			</a>
-		</div>
-		<div>
-			<a href="art/pixel-art.html">
-				<img src="assets/images/art/pixel-moog-thumb.png"/>
-				<h3>Pixel Art</h3>
-			</a>
-		</div>
-		<div>
-			<a href="art/traditional.html">
-				<img src="assets/images/art/art-painting-waterhouse.png"/>
-				<h3>Traditional</h3>
-			</a>
-		</div>
-		<!--
-		<div>
-			<a href="art/sketches.html">
-				<img src="assets/images/art/zen.png"/>
-				<h3>Sketches</h3>
-			</a>
-		</div>
-		<div>
-		<a href="comics.html">
-					<img src="assets/images/comics/card-reader-thumb.png"/>
-					<h3>Comics</h3>
-				</a>
-		</div>-->
-	</div>
-</div>
+<body class="page-project">
+
+  <header class="site-header">
+    <a href="/" class="wordmark">Gregory Wieber</a>
+    <nav class="site-nav">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="apps.html">Apps</a>
+      <a href="bio.html">About</a>
+    </nav>
+  </header>
+
+  <div class="index-page">
+    <a href="/" class="project-back">Home</a>
+    <h1>Art</h1>
+
+    <div class="index-grid">
+      <div class="index-card">
+        <a href="art/experiments.html">
+          <img src="assets/images/art/experiments-blobby.jpg" alt="Generative Art Experiments">
+          <h3>Experiments</h3>
+          <p class="index-card-meta">Metal, GPU Compute</p>
+        </a>
+      </div>
+      <div class="index-card">
+        <a href="art/a-walk-through-latent-space-making-art-with-neural-networks.html">
+          <img src="assets/images/art/fauvgan.png" alt="Neural Network Art">
+          <h3>Latent Space</h3>
+          <p class="index-card-meta">Neural Networks, GANs</p>
+        </a>
+      </div>
+      <div class="index-card">
+        <a href="art/digital.html">
+          <img src="assets/images/art/lorenz-2-thumb.png" alt="Digital Art">
+          <h3>Digital</h3>
+          <p class="index-card-meta">3D, Real-time Graphics</p>
+        </a>
+      </div>
+      <div class="index-card">
+        <a href="art/pixel-art.html">
+          <img src="assets/images/art/pixel-moog-thumb.png" alt="Pixel Art">
+          <h3>Pixel Art</h3>
+          <p class="index-card-meta">Apple Pencil</p>
+        </a>
+      </div>
+      <div class="index-card">
+        <a href="art/traditional.html">
+          <img src="assets/images/art/art-painting-waterhouse.png" alt="Traditional Art">
+          <h3>Traditional</h3>
+          <p class="index-card-meta">Oil, Charcoal, Digital Painting</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p class="footer-name">Gregory Wieber</p>
+      <p class="footer-email"><a href="mailto:hello@apposite.ai">hello@apposite.ai</a></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="https://apposite.ai">Apposite</a>
+      <a href="https://www.instagram.com/dreamwieber/">Instagram</a>
+      <span class="footer-year">2026</span>
+    </div>
+  </footer>
+
 </body>
 </html>

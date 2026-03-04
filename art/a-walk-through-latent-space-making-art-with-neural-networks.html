@@ -30,8 +30,9 @@
   <div class="article-content">
     <a href="/" class="project-back">Home</a>
     <div class="article-header">
-      <h1>A Walk Through Latent Space: Making Art with Neural Networks</h1>
-      <p class="article-date">2019</p>
+      <h1>A Walk Through Latent Space</h1>
+      <p class="article-date">2019 — Making Art with Neural Networks</p>
+      <p class="article-note">Note from the future: This project was made in 2019, in the days before MidJourney and other mainstream Generative AI apps existed. While primitive by today's standards, seeing this model train successfully was mind-blowing at the time. Below is the preserved entry from the time of its creation.</p>
     </div>
 
     <div class="article-body">
@@ -52,19 +53,32 @@
       <p>The Fauvist school was itself hallucinatory, with its bright colors and abstract compositions, fueled by absinthe and the natural beauty of Provence. This style lends well to a neural network generative approach, which produces images that feel like a hallucination, or a dream. What are these places, these people, these paintings? They feel familiar, like the neural net has captured not just an aesthetic, but memories of the past.</p>
 
       <p>The number of Fauvist paintings is limited, so transfer learning was used — where a model that has already been trained on a wide range of generic art (<a href="https://github.com/parameter-pollution/stylegan_paintings">stylegan-paintings</a>) was used as a jumping-off point for continued training with the Fauvist image dataset. In this sense, this process mirrored the Fauves themselves — building on a base of classic art training, and riffing off the styles of their contemporaries. In the GIF above you can see the original model contrasted with the result of the transfer learning. In both models, the latent space is similarly organized — you can see a boy, a woman, a grove of trees, all in similar locations in the grid. This is not 'enforced' in any way — it is <em>learned</em> by the neural network as it ingests thousands of images. To me, one of the most fascinating outcomes is how quickly the transfer learning worked to make the original net's output look like Fauvist paintings; a classical looking woman becomes a woman who would not look out of place drinking absinthe in a French cafe circa 1880.</p>
+    </div>
+  </div>
 
-      <figure>
+  <!-- Gallery of generated paintings — breaks out of article column -->
+  <div class="gallery-page gallery-inline">
+    <div class="gallery-grid">
+      <figure class="gallery-item">
         <img src="../assets/images/art/fauv-0.jpg" alt="Neural network Fauvist painting">
       </figure>
 
-      <figure>
+      <figure class="gallery-item">
         <img src="../assets/images/art/fauv-1.jpg" alt="Neural network Fauvist painting">
       </figure>
 
-      <figure>
+      <figure class="gallery-item">
         <img src="../assets/images/art/fauv-4.jpg" alt="Neural network Fauvist painting">
       </figure>
 
+      <figure class="gallery-item">
+        <img src="../assets/images/art/fauv-5.jpg" alt="Neural network Fauvist landscape">
+      </figure>
+    </div>
+  </div>
+
+  <div class="article-content article-continued">
+    <div class="article-body">
       <p>Like this work? <a href="https://instagram.com/dreamwieber">Follow me on Instagram</a> for more.</p>
     </div>
   </div>
