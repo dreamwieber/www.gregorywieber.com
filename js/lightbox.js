@@ -62,8 +62,8 @@
   document.addEventListener('click', function (e) {
     var image = e.target.closest('.gallery-item img');
     if (!image) return;
-    // Skip images inside triptychs or links
-    if (image.closest('.gallery-triptych') || image.closest('a')) return;
+    // Skip images inside links (they navigate elsewhere)
+    if (image.closest('a')) return;
 
     var figure = image.closest('.gallery-item');
     var titleEl = figure.querySelector('.gallery-title');
