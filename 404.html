@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found — Gregory Wieber</title>
+
+  <link rel="stylesheet" href="/style/redesign.css">
+</head>
+<body class="page-project">
+
+  <header class="site-header">
+    <a href="/" class="wordmark">Gregory Wieber</a>
+    <nav class="site-nav">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="/apps.html">Apps</a>
+      <a href="/art.html">Art</a>
+      <a href="/bio.html">About</a>
+    </nav>
+  </header>
+
+  <div class="project-content">
+    <a href="/" class="project-back">Home</a>
+    <h1>Page Not Found</h1>
+    <div class="project-body">
+      <p>This page doesn't exist. It may have been moved or removed.</p>
+      <p id="suggestion"></p>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var pages = [
+      { path: '/apps/vibescape.html', words: ['vibescape', 'vision', 'spatial', 'vr'] },
+      { path: '/apps/metaballs.html', words: ['metaball', 'blob', 'sculpt', '3d'] },
+      { path: '/apps/polychord.html', words: ['polychord', 'music', 'ipad', 'chord'] },
+      { path: '/apps/sagebrush.html', words: ['sagebrush', 'sage', 'ai', 'paint', 'drawing'] },
+      { path: '/apps/menace.html', words: ['menace', 'synth', 'noise', 'drone'] },
+      { path: '/apps/microcosm.html', words: ['microcosm', 'sound', 'granular'] },
+      { path: '/apps/lineal.html', words: ['lineal', 'timeline'] },
+      { path: '/apps/timeful.html', words: ['timeful', 'google', 'calendar'] },
+      { path: '/apps/hum-to-search.html', words: ['hum', 'search', 'visualiz'] },
+      { path: '/apps/search-pinball.html', words: ['pinball', 'easter', 'game'] },
+      { path: '/apps.html', words: ['app'] },
+      { path: '/art/digital.html', words: ['digital', 'metal', 'lorenz', 'fluid', 'shader', 'gpu', 'experiment'] },
+      { path: '/art/pixel-art.html', words: ['pixel'] },
+      { path: '/art/traditional.html', words: ['traditional', 'oil', 'charcoal', 'painting'] },
+      { path: '/art/a-walk-through-latent-space-making-art-with-neural-networks.html', words: ['latent', 'neural', 'gan', 'network'] },
+      { path: '/art/fake-shapes.html', words: ['ginormous', 'fake', 'shapes', 'music video'] },
+      { path: '/art.html', words: ['art', 'gallery'] },
+      { path: '/writing.html', words: ['writing', 'essay', 'blog', 'article'] },
+      { path: '/writing/hypercard.html', words: ['hypercard', 'apple', 'history'] },
+      { path: '/writing/my-computer-history.html', words: ['computer', 'history', 'tandy'] },
+      { path: '/bio.html', words: ['about', 'bio', 'contact'] },
+      { path: '/cleryfarm.html', words: ['farm', 'clery', 'prairie', 'oak'] },
+    ];
+
+    var url = decodeURIComponent(window.location.pathname).toLowerCase();
+    var best = null;
+    var bestScore = 0;
+
+    for (var i = 0; i < pages.length; i++) {
+      var score = 0;
+      for (var j = 0; j < pages[i].words.length; j++) {
+        if (url.indexOf(pages[i].words[j]) !== -1) score++;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        best = pages[i];
+      }
+    }
+
+    if (best) {
+      var el = document.getElementById('suggestion');
+      el.innerHTML = 'Were you looking for <a href="' + best.path + '">' + best.path.replace(/\.html$/, '').replace(/^\//, '') + '</a>?';
+    }
+  })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p class="footer-name">Gregory Wieber</p>
+      <p class="footer-email"><a href="mailto:hello@apposite.ai">hello@apposite.ai</a></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+      <a href="https://apposite.ai">Apposite</a>
+      <a href="https://www.instagram.com/dreamwieber/">Instagram</a>
+      <span class="footer-year">2026</span>
+    </div>
+  </footer>
+
+</body>
+</html>
