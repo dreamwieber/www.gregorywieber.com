@@ -1,0 +1,582 @@
+{
+  "site": {
+    "name": "Gregory Wieber",
+    "url": "https://gregorywieber.com",
+    "tagline": "Spatial software. Immersive worlds. Indie studio in the Pacific Northwest."
+  },
+  "pages": [
+    {
+      "id": "home",
+      "path": "/index.html",
+      "title": "Gregory Wieber",
+      "description": "Spatial software, immersive worlds, and indie studio in the Pacific Northwest. Apps for Vision Pro, generative art, and creative technology.",
+      "category": "page",
+      "ogImage": "/assets/images/art/lorenz-2-thumb.png",
+      "featuredWork": [
+        { "number": 1, "label": "Vibescape, Vision Pro", "href": "/apps/vibescape.html", "image": "/assets/images/vibescape.jpeg" },
+        { "number": 2, "label": "YouTube, HyperCard Changed Everything", "href": "/writing/hypercard.html", "image": "/assets/images/hypercard-thumb.png" },
+        { "number": 3, "label": "Metaballs, Apple Vision Pro", "href": "/apps/metaballs.html", "image": "/assets/images/apps/metaballs.jpg" },
+        { "number": 4, "label": "Google, Creative Engineering", "href": "/apps/hum-to-search.html", "image": "/assets/images/apps/hum-to-search.png" },
+        { "number": 5, "label": "Generative Art, Metal", "href": "/art/digital.html#lines", "image": "/assets/images/art/experiments-lines.jpg" },
+        { "number": 6, "label": "Music Video, Ginormous", "href": "/art/fake-shapes.html", "image": "/assets/images/tmp-ginormous.png" },
+        { "number": 7, "label": "Polychord, iPad", "href": "/apps/polychord.html", "image": "/assets/images/apps/polychord.png" },
+        { "number": 8, "label": "Google, Easter Egg", "href": "/apps/search-pinball.html", "image": "/assets/images/apps/search-pinball.png" }
+      ],
+      "surprisePool": [
+        { "label": "Pixel Art, Alan Watts", "image": "/assets/images/art/pixel-watts.png", "href": "/art/pixel-art.html" },
+        { "label": "Pixel Art, Pacific NW", "image": "/assets/images/art/pixel-pnw.png", "href": "/art/pixel-art.html" },
+        { "label": "Pixel Art, Minimoog", "image": "/assets/images/art/pixel-moog.png", "href": "/art/pixel-art.html" },
+        { "label": "Pixel Art, Workshop", "image": "/assets/images/art/pixel-nakashima.png", "href": "/art/pixel-art.html" },
+        { "label": "Pixel Art, Storm", "image": "/assets/images/art/pixel-snow.png", "href": "/art/pixel-art.html" },
+        { "label": "Pixel Art, Dojo", "image": "/assets/images/art/pixel-dojo.png", "href": "/art/pixel-art.html" },
+        { "label": "Lorenz Attractor", "image": "/assets/images/art/lorenz.png", "href": "/art/digital.html" },
+        { "label": "Strange Attractor", "image": "/assets/images/art/lorenz-2.png", "href": "/art/digital.html" },
+        { "label": "Neural Network Painting", "image": "/assets/images/art/fauv-0.jpg", "href": "/art/a-walk-through-latent-space-making-art-with-neural-networks.html" },
+        { "label": "GAN Landscape", "image": "/assets/images/art/fauv-5.jpg", "href": "/art/a-walk-through-latent-space-making-art-with-neural-networks.html" },
+        { "label": "Figure Study", "image": "/assets/images/art/waterhouse.png", "href": "/art/traditional.html" },
+        { "label": "Louvre Study", "image": "/assets/images/art/louvre-2.png", "href": "/art/traditional.html" },
+        { "label": "Murmuration Sim", "image": "/assets/images/art/experiments-murmuration.jpg", "href": "/art/digital.html#murmuration" },
+        { "label": "Cellular Automata", "image": "/assets/images/art/experiments-cellular.jpg", "href": "/art/digital.html#cellular" },
+        { "label": "N-Body Galaxy", "image": "/assets/images/art/experiments-nbody.jpg", "href": "/art/digital.html#galaxies" }
+      ]
+    },
+    {
+      "id": "apps-index",
+      "path": "/apps.html",
+      "title": "Apps",
+      "description": "Apps by Gregory Wieber. Music, creativity, and spatial computing.",
+      "category": "page",
+      "ogImage": "/assets/images/vibescape.jpeg"
+    },
+    {
+      "id": "art-index",
+      "path": "/art.html",
+      "title": "Art",
+      "description": "Art by Gregory Wieber. Digital, traditional, pixel art, and generative experiments.",
+      "category": "page",
+      "ogImage": "/assets/images/art/pixel-dojo.png"
+    },
+    {
+      "id": "writing-index",
+      "path": "/writing.html",
+      "title": "Writing",
+      "description": "Writing by Gregory Wieber. Essays, reviews, and personal reflections.",
+      "category": "page",
+      "ogImage": "/assets/images/hypercard-thumb.png"
+    },
+    {
+      "id": "bio",
+      "path": "/bio.html",
+      "title": "About",
+      "description": "Designer, creative engineer, and indie developer in the Pacific Northwest.",
+      "category": "page",
+      "ogImage": "/assets/images/art/pixel-dojo.png"
+    },
+    {
+      "id": "cleryfarm",
+      "path": "/cleryfarm.html",
+      "title": "Clery Farm",
+      "description": "Restoring an historic farm, upland prairie, and oak woodland in the Pacific Northwest.",
+      "category": "page",
+      "ogImage": "/assets/images/cleryfarm2.jpg",
+      "heroImage": "/assets/images/cleryfarm2.jpg"
+    }
+  ],
+  "apps": [
+    {
+      "id": "vibescape",
+      "path": "/apps/vibescape.html",
+      "name": "Vibescape",
+      "platform": "Apple Vision Pro",
+      "description": "A spatial environment app for Apple Vision Pro. Step into hand-crafted immersive worlds designed for focus, relaxation, and wonder.",
+      "heroImage": "/assets/images/vibescape.jpeg",
+      "ogImage": "/assets/images/vibescape.jpeg",
+      "tags": ["spatial", "visionOS", "immersive", "environment"],
+      "externalLink": "https://www.youtube.com/playlist?list=PLHA_sJmXyiktWxd0ZMoM6SnmN3m0OlzMG"
+    },
+    {
+      "id": "metaballs",
+      "path": "/apps/metaballs.html",
+      "name": "Metaballs",
+      "platform": "Apple Vision Pro",
+      "description": "Metaballs for Apple Vision Pro is a fun way to play with shapes and materials. You can directly manipulate blobby geometry with intuitive gestures, and export your models for sharing & 3D printing.",
+      "heroImage": "/assets/images/apps/metaballs.jpg",
+      "ogImage": "/assets/images/apps/metaballs.jpg",
+      "tags": ["spatial", "visionOS", "3D", "sculpting"]
+    },
+    {
+      "id": "polychord",
+      "path": "/apps/polychord.html",
+      "name": "Polychord",
+      "platform": "iPad",
+      "year": 2010,
+      "description": "An iPad music-making app. Featured by Apple, one of the top selling music apps on iTunes.",
+      "heroImage": "/assets/images/apps/polychord.png",
+      "ogImage": "/assets/images/apps/polychord.png",
+      "tags": ["music", "iPad", "instrument", "MIDI"],
+      "images": [
+        { "src": "/assets/images/apps/polychord-chords.jpg", "title": "Ancient Artifacts", "description": "Early UI explorations" },
+        { "src": "/assets/images/apps/polychord_band.jpg", "title": "Retro", "description": "Early marketing inspired by 70s print ads" }
+      ],
+      "videos": [
+        { "src": "https://player.vimeo.com/video/16518652", "title": "Poly Song", "description": "Very first demo video of Polychord" }
+      ],
+      "externalLink": "http://polychordapp.com"
+    },
+    {
+      "id": "sagebrush",
+      "path": "/apps/sagebrush.html",
+      "name": "SageBrush",
+      "platform": "iPad",
+      "description": "One of the first apps that let you draw with AI, rather than prompting alone. Makes AI-creation feel less like a slot machine, and more like a familiar tool.",
+      "heroImage": "/assets/images/sagebrush-hero.png",
+      "ogImage": "/assets/images/sagebrush-hero.png",
+      "tags": ["AI", "iPad", "drawing", "Apple Pencil"]
+    },
+    {
+      "id": "menace",
+      "path": "/apps/menace.html",
+      "name": "Menace",
+      "platform": "iOS",
+      "description": "An experimental music/noise synthesizer for iOS. 30 detuning saw waves creating immense drones and sonic textures.",
+      "heroImage": "/assets/images/apps/menace-still.png",
+      "ogImage": "/assets/images/apps/menace-still.png",
+      "tags": ["music", "synth", "noise", "iOS", "MIDI"],
+      "images": [
+        { "src": "/assets/images/apps/menace-concept.png", "title": "Menace", "description": "Concept sketched in Procreate on iPad" }
+      ],
+      "externalLink": "https://itunes.apple.com/app/id1387317830"
+    },
+    {
+      "id": "microcosm",
+      "path": "/apps/microcosm.html",
+      "name": "Microcosm",
+      "platform": "iOS",
+      "year": 2012,
+      "description": "A sound toy app combining granular synthesis with a snow globe you can tilt and shake.",
+      "heroImage": null,
+      "ogImage": "/assets/images/apps/microcosm-icon.png",
+      "tags": ["music", "sound toy", "iOS", "granular synthesis", "OpenGL"],
+      "images": [
+        { "src": "/assets/images/apps/microcosm-notes.jpg", "title": "Dev Journal", "description": "Early notes on Microcosm" }
+      ],
+      "videos": [
+        { "src": "https://player.vimeo.com/video/33891490", "title": "Microcosm Demo" },
+        { "src": "https://player.vimeo.com/video/39007669", "title": "Magnetic Attraction", "description": "In-progress update" }
+      ],
+      "externalLink": "https://itunes.apple.com/us/app/microcosm/id481890287?mt=8"
+    },
+    {
+      "id": "lineal",
+      "path": "/apps/lineal.html",
+      "name": "Lineal",
+      "platform": "iPad",
+      "year": 2011,
+      "description": "An iPad app for making timelines. Zoom from millennia to minutes.",
+      "heroImage": "/assets/images/apps/lineal.jpg",
+      "ogImage": "/assets/images/apps/lineal.jpg",
+      "tags": ["iPad", "timeline", "productivity"],
+      "images": [
+        { "src": "/assets/images/apps/lineal-notebook.jpg", "title": "Event Stacks", "description": "Lineal development journal" }
+      ]
+    },
+    {
+      "id": "timeful",
+      "path": "/apps/timeful.html",
+      "name": "Timeful",
+      "platform": "iOS",
+      "year": 2015,
+      "description": "A Palo Alto startup using AI to help people make time for what matters. Acquired by Google in 2015.",
+      "heroImage": null,
+      "ogImage": "/assets/images/apps/timeful.jpg",
+      "tags": ["startup", "AI", "calendar", "Google acquisition"],
+      "images": [
+        { "src": "/assets/images/apps/timeful-onboard.jpg", "title": "First Impression", "description": "Onboarding iteration developed with Annika Matta and Dan Ariely" }
+      ]
+    },
+    {
+      "id": "hum-to-search",
+      "path": "/apps/hum-to-search.html",
+      "name": "Hum to Search",
+      "platform": "Google",
+      "description": "A real-time audio visualizer built at Google for the Hum to Search feature. Creative engineering combining audio analysis with expressive motion graphics.",
+      "heroImage": "/assets/images/apps/hum-to-search.png",
+      "ogImage": "/assets/images/apps/hum-to-search.png",
+      "tags": ["Google", "audio", "visualizer", "creative engineering"],
+      "collaborators": ["Adam Grabowski"]
+    },
+    {
+      "id": "search-pinball",
+      "path": "/apps/search-pinball.html",
+      "name": "Google Search Easter Egg Game",
+      "platform": "Google",
+      "description": "In collaboration with Google's Delight team, we created an easter egg game inside the Google Search app for iPhone that actually landed on Fox News's top games of the year list.",
+      "heroImage": "/assets/images/apps/search-pinball.png",
+      "ogImage": "/assets/images/apps/search-pinball.png",
+      "tags": ["Google", "game", "easter egg", "creative engineering"]
+    }
+  ],
+  "art": [
+    {
+      "id": "digital",
+      "path": "/art/digital.html",
+      "title": "Digital",
+      "description": "Digital art by Gregory Wieber. Real-time graphics, Metal compute shaders, fluid simulation, and 3D modeling.",
+      "ogImage": "/assets/images/art/fauvgan.png",
+      "items": [
+        {
+          "id": "latent-space",
+          "title": "A Walk Through Latent Space",
+          "meta": "Making art with neural networks, 2019",
+          "image": "/assets/images/art/fauvgan.png",
+          "href": "/art/a-walk-through-latent-space-making-art-with-neural-networks.html",
+          "year": 2019,
+          "tags": ["neural network", "GAN", "AI", "generative"]
+        },
+        {
+          "id": "lorenz",
+          "title": "Lorenz Attractor",
+          "meta": "iOS/macOS application, 2019",
+          "images": ["/assets/images/art/lorenz.png", "/assets/images/art/lorenz-2.png", "/assets/images/art/lorenz-3.png"],
+          "year": 2019,
+          "tags": ["Metal", "particles", "chaos theory", "real-time"]
+        },
+        {
+          "id": "fluid",
+          "title": "Fluid Simulation",
+          "meta": "iOS application, 2019",
+          "video": "http://media.gregorywieber.com.s3.amazonaws.com/fluid-1080p.mov",
+          "poster": "/assets/images/art/fluid.png",
+          "year": 2019,
+          "tags": ["Metal", "compute shader", "physics", "real-time"]
+        },
+        {
+          "anchor": "murmuration",
+          "title": "Murmuration",
+          "description": "A flocking algorithm wherein each element attempts to align itself to every other element, steer towards the center of the flock, and avoid colliding with other elements.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/murmuration_1.mp4",
+          "poster": "/assets/images/art/experiments-murmuration.jpg",
+          "tags": ["Metal", "flocking", "n-body", "GPU compute"]
+        },
+        {
+          "anchor": "isosurface",
+          "title": "Isosurface",
+          "description": "Implementation of Marching Cubes algorithm in a Metal Compute Shader.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/blobby_1.mp4",
+          "poster": "/assets/images/art/experiments-blobby.jpg",
+          "tags": ["Metal", "marching cubes", "n-body", "GPU compute"]
+        },
+        {
+          "anchor": "cellular",
+          "title": "Cellular",
+          "description": "A 3D implementation of Cellular Automata. Similar to Conway's Game of Life, but in three dimensions.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/cellular_1.mp4",
+          "poster": "/assets/images/art/experiments-cellular.jpg",
+          "tags": ["Metal", "cellular automata", "GPU compute"]
+        },
+        {
+          "anchor": "lines",
+          "title": "Lines",
+          "description": "Music video for Henri Bergman's track Nexus. A video stream of a dancer displaces an array of lines.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/lines_1.mp4",
+          "poster": "/assets/images/art/experiments-lines.jpg",
+          "tags": ["Metal", "music video", "audio reactive"]
+        },
+        {
+          "title": "Interference",
+          "description": "Music video for Henri Bergman's track Interference. Lorenz Attractor morphing into a portrait.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/Interference.mov",
+          "poster": "/assets/images/art/experiments-interference.jpg",
+          "tags": ["Metal", "music video", "Lorenz attractor"]
+        },
+        {
+          "anchor": "galaxies",
+          "title": "Galaxies",
+          "description": "N-body simulation wherein each particle is gravitationally attracted to each other particle.",
+          "video": "https://d1w75jisb8fw0q.cloudfront.net/nbody_1.mp4",
+          "poster": "/assets/images/art/experiments-nbody.jpg",
+          "tags": ["Metal", "n-body", "GPU compute"]
+        },
+        {
+          "title": "Figure",
+          "meta": "Subdivision Surface Model in Maya, 2007",
+          "image": "/assets/images/art/wireframe-1.png",
+          "year": 2007,
+          "tags": ["3D modeling", "Maya", "subdivision surface"]
+        },
+        {
+          "title": "Figure: Detail",
+          "meta": "Subdivision Surface Model in Maya, 2007",
+          "description": "Sculpted from a simple cube over several months through repeated subdivision and refinement.",
+          "image": "/assets/images/art/wireframe.png",
+          "year": 2007,
+          "tags": ["3D modeling", "Maya", "subdivision surface"]
+        }
+      ]
+    },
+    {
+      "id": "pixel-art",
+      "path": "/art/pixel-art.html",
+      "title": "Pixel Art",
+      "description": "Pixel art by Gregory Wieber. Scenes and objects rendered pixel by pixel on iPad.",
+      "ogImage": "/assets/images/art/pixel-dojo.png",
+      "items": [
+        { "title": "Alan Watts", "year": 2018, "image": "/assets/images/art/pixel-watts.png" },
+        { "title": "Minimoog", "year": 2018, "image": "/assets/images/art/pixel-moog.png" },
+        { "title": "Pacific Northwest", "year": 2018, "image": "/assets/images/art/pixel-pnw.png" },
+        { "title": "Nakashima's Workshop", "year": 2016, "image": "/assets/images/art/pixel-nakashima.png" },
+        { "title": "Storm", "year": 2016, "image": "/assets/images/art/pixel-snow.png" },
+        { "title": "Bath", "year": 2017, "image": "/assets/images/art/pixel-bath.png" },
+        { "title": "Ice Cream Cone", "year": 2016, "image": "/assets/images/art/pixel-icecream.png" },
+        { "title": "Tatami", "year": 2016, "image": "/assets/images/art/pixel-dojo.png" }
+      ]
+    },
+    {
+      "id": "traditional",
+      "path": "/art/traditional.html",
+      "title": "Traditional",
+      "description": "Traditional art by Gregory Wieber. Oil painting, charcoal drawing, and digital painting with Apple Pencil.",
+      "ogImage": "/assets/images/art/waterhouse.png",
+      "items": [
+        { "title": "Waterhouse Study", "medium": "Apple Pencil on Tablet", "year": 2017, "image": "/assets/images/art/waterhouse.png" },
+        { "title": "Louvre Study", "medium": "Apple Pencil on Tablet", "year": 2017, "image": "/assets/images/art/louvre-2.png" },
+        { "title": "Hawthorn Bridge", "medium": "Apple Pencil on Tablet", "year": 2017, "image": "/assets/images/art/Hawthorn_bridge_PDX.png" },
+        { "title": "Figure", "medium": "Apple Pencil on Tablet", "year": 2017, "image": "/assets/images/art/figure.png" },
+        { "title": "Bicycle", "medium": "Apple Pencil on Tablet", "year": 2016, "image": "/assets/images/art/bicycle.JPG" },
+        { "title": "Louvre Study", "medium": "Charcoal on Paper", "year": 2009, "image": "/assets/images/art/louvre.jpg" },
+        { "title": "Rome", "medium": "Charcoal on Paper", "year": 2009, "image": "/assets/images/art/rome.png" },
+        { "title": "Los Feliz", "medium": "Oil on Canvas", "year": 2007, "image": "/assets/images/art/los-feliz.JPG" },
+        { "title": "Los Feliz — Detail", "medium": "Oil on Canvas", "year": 2007, "image": "/assets/images/art/los-feliz-detail.JPG" },
+        { "title": "Los Feliz — Detail", "medium": "Oil on Canvas", "year": 2007, "image": "/assets/images/art/los-feliz-detail-2.JPG" }
+      ]
+    },
+    {
+      "id": "fake-shapes",
+      "path": "/art/fake-shapes.html",
+      "title": "After the Before Then",
+      "description": "A music video for Portland band Ginormous. Generative 3D visuals synced to music, built with real-time graphics and creative coding.",
+      "heroImage": "/assets/images/tmp-ginormous.png",
+      "ogImage": "/assets/images/tmp-ginormous.png",
+      "tags": ["music video", "Houdini", "3D", "generative"],
+      "collaborators": ["Bryan Konietzko"],
+      "externalLink": "https://www.youtube.com/watch?v=_GJINmKcYAM"
+    },
+    {
+      "id": "latent-space",
+      "path": "/art/a-walk-through-latent-space-making-art-with-neural-networks.html",
+      "title": "A Walk Through Latent Space",
+      "description": "Making art with neural networks. Exploring the Fauvist dreams of a generative adversarial network.",
+      "ogImage": "/assets/images/art/fauvgan.png",
+      "year": 2019,
+      "tags": ["neural network", "GAN", "AI", "generative", "writing"],
+      "images": [
+        "/assets/images/art/fauvgan.png",
+        "/assets/images/art/transfer-learning.gif",
+        "/assets/images/art/fauv-0.jpg",
+        "/assets/images/art/fauv-1.jpg",
+        "/assets/images/art/fauv-4.jpg",
+        "/assets/images/art/fauv-5.jpg"
+      ],
+      "videos": [
+        { "src": "https://storage.googleapis.com/dreamwieber-fauvgan/latent-walk.mp4", "poster": "/assets/images/art/fauvgan.png" }
+      ]
+    }
+  ],
+  "writing": [
+    {
+      "id": "hypercard",
+      "path": "/writing/hypercard.html",
+      "title": "The Story of HyperCard",
+      "description": "The story of Apple's forgotten creative tool. HyperCard let anyone build interactive software in 1987, years before the web.",
+      "type": "video essay",
+      "ogImage": "/assets/images/hypercard-thumb.png",
+      "heroImage": "/assets/images/hypercard-thumb.png",
+      "tags": ["tech history", "Apple", "YouTube"],
+      "externalLink": "https://www.youtube.com/watch?v=GbJxFBSfYE4"
+    },
+    {
+      "id": "comet",
+      "path": "/writing/comet.html",
+      "title": "Out of Power in Tivoli, NY",
+      "description": "Remembering Comet Hale-Bopp.",
+      "type": "essay",
+      "ogImage": "/assets/images/writing/comet.jpg",
+      "tags": ["memoir", "personal"],
+      "images": ["/assets/images/writing/comet.jpg"]
+    },
+    {
+      "id": "my-computer-history",
+      "path": "/writing/my-computer-history.html",
+      "title": "My Computer History",
+      "description": "A look at the machines that influenced my life.",
+      "type": "essay",
+      "year": 2019,
+      "ogImage": "/assets/images/writing/g3.jpg",
+      "tags": ["tech history", "personal", "memoir"],
+      "images": [
+        "/assets/images/writing/appleIIb.jpg",
+        "/assets/images/writing/ibmPC.jpg",
+        "/assets/images/writing/lcIII_with_mon.jpg",
+        "/assets/images/writing/VideoToaster-original.jpg",
+        "/assets/images/writing/onyx.jpeg",
+        "/assets/images/writing/indybyte.jpg",
+        "/assets/images/writing/dell.jpg",
+        "/assets/images/writing/g3.jpg",
+        "/assets/images/writing/tibook.png",
+        "/assets/images/writing/imac.jpeg",
+        "/assets/images/writing/macbook.jpeg",
+        "/assets/images/writing/ipad.jpg"
+      ]
+    },
+    {
+      "id": "dawn-of-the-new-everything",
+      "path": "/writing/dawn-of-the-new-everything-review.html",
+      "title": "Dawn of the New Everything — Review",
+      "description": "A review of Jaron Lanier's Dawn of the New Everything.",
+      "type": "review",
+      "year": 2018,
+      "ogImage": "/assets/images/writing/Shadowscreen_400px_wide.jpg",
+      "tags": ["VR", "book review", "Jaron Lanier"],
+      "images": ["/assets/images/writing/Shadowscreen_400px_wide.jpg"]
+    },
+    {
+      "id": "dragons",
+      "path": "/writing/dragons.html",
+      "title": "The Dragons of Eden",
+      "description": "Carl Sagan on the evolution of the human mind and the future of our species.",
+      "type": "review",
+      "ogImage": "/assets/images/writing/dragons.jpg",
+      "tags": ["book review", "Carl Sagan", "science"],
+      "images": ["/assets/images/writing/dragons.jpg"]
+    },
+    {
+      "id": "principles",
+      "path": "/writing/ray-dalio-principles.html",
+      "title": "Principles",
+      "description": "Ray Dalio on navigating life and work through reflection and radical transparency.",
+      "type": "review",
+      "ogImage": "/assets/images/writing/dalio-principles-up.jpg",
+      "tags": ["book review", "Ray Dalio", "business"],
+      "images": ["/assets/images/writing/dalio-principles-up.jpg", "/assets/images/writing/dalio-principles-down.jpg"]
+    }
+  ],
+  "images": {
+    "apps": [
+      "/assets/images/apps/apps-polychord-thumb.jpg",
+      "/assets/images/apps/hum-to-search.png",
+      "/assets/images/apps/lineal-notebook.jpg",
+      "/assets/images/apps/lineal.jpg",
+      "/assets/images/apps/lineal.png",
+      "/assets/images/apps/menace-concept.png",
+      "/assets/images/apps/menace-still.png",
+      "/assets/images/apps/menace-thumb.png",
+      "/assets/images/apps/metaballs.jpg",
+      "/assets/images/apps/microcosm-icon.png",
+      "/assets/images/apps/microcosm-notes.jpg",
+      "/assets/images/apps/polychord_band.jpg",
+      "/assets/images/apps/polychord-chords.jpg",
+      "/assets/images/apps/polychord.png",
+      "/assets/images/apps/search-pinball.png",
+      "/assets/images/apps/timeful-onboard.jpg",
+      "/assets/images/apps/timeful.jpg"
+    ],
+    "art": [
+      "/assets/images/art/art-painting-waterhouse.png",
+      "/assets/images/art/bicycle.JPG",
+      "/assets/images/art/experiments-blobby.jpg",
+      "/assets/images/art/experiments-cellular.jpg",
+      "/assets/images/art/experiments-interference.jpg",
+      "/assets/images/art/experiments-lines.jpg",
+      "/assets/images/art/experiments-murmuration.jpg",
+      "/assets/images/art/experiments-nbody.jpg",
+      "/assets/images/art/fauv-0.jpg",
+      "/assets/images/art/fauv-1.jpg",
+      "/assets/images/art/fauv-4.jpg",
+      "/assets/images/art/fauv-5.jpg",
+      "/assets/images/art/fauvgan.png",
+      "/assets/images/art/figure.png",
+      "/assets/images/art/fluid.png",
+      "/assets/images/art/Hawthorn_bridge_PDX.png",
+      "/assets/images/art/lorenz-2-thumb.png",
+      "/assets/images/art/lorenz-2.png",
+      "/assets/images/art/lorenz-3.png",
+      "/assets/images/art/lorenz.png",
+      "/assets/images/art/los-feliz-detail-2.JPG",
+      "/assets/images/art/los-feliz-detail.JPG",
+      "/assets/images/art/los-feliz.JPG",
+      "/assets/images/art/louvre-2.png",
+      "/assets/images/art/louvre.jpg",
+      "/assets/images/art/ml-visualization.jpg",
+      "/assets/images/art/pixel-bath.png",
+      "/assets/images/art/pixel-dojo.png",
+      "/assets/images/art/pixel-icecream.png",
+      "/assets/images/art/pixel-moog-thumb.png",
+      "/assets/images/art/pixel-moog.png",
+      "/assets/images/art/pixel-nakashima.png",
+      "/assets/images/art/pixel-pnw.png",
+      "/assets/images/art/pixel-snow.png",
+      "/assets/images/art/pixel-watts.png",
+      "/assets/images/art/rome.png",
+      "/assets/images/art/transfer-learning.gif",
+      "/assets/images/art/waterhouse.png",
+      "/assets/images/art/wireframe-1.png",
+      "/assets/images/art/wireframe.png"
+    ],
+    "writing": [
+      "/assets/images/writing/appleIIb.jpg",
+      "/assets/images/writing/comet.jpg",
+      "/assets/images/writing/dalio-principles-down.jpg",
+      "/assets/images/writing/dalio-principles-up.jpg",
+      "/assets/images/writing/dell.jpg",
+      "/assets/images/writing/dragons.jpg",
+      "/assets/images/writing/g3.jpg",
+      "/assets/images/writing/ibmPC.jpg",
+      "/assets/images/writing/imac.jpeg",
+      "/assets/images/writing/indybyte.jpg",
+      "/assets/images/writing/ipad.jpg",
+      "/assets/images/writing/lcIII_with_mon.jpg",
+      "/assets/images/writing/macbook.jpeg",
+      "/assets/images/writing/onyx.jpeg",
+      "/assets/images/writing/Shadowscreen_400px_wide.jpg",
+      "/assets/images/writing/tibook.png",
+      "/assets/images/writing/VideoToaster-original.jpg"
+    ],
+    "root": [
+      "/assets/images/cleryfarm.jpg",
+      "/assets/images/cleryfarm2.jpg",
+      "/assets/images/greg-profile.jpg",
+      "/assets/images/hypercard-thumb.png",
+      "/assets/images/sagebrush-hero.png",
+      "/assets/images/tmp-ginormous.png",
+      "/assets/images/vibescape.jpeg"
+    ]
+  },
+  "externalMedia": [
+    { "type": "video", "src": "http://media.gregorywieber.com.s3.amazonaws.com/fluid-1080p.mov", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://storage.googleapis.com/dreamwieber-fauvgan/latent-walk.mp4", "used": "/art/a-walk-through-latent-space-making-art-with-neural-networks.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/murmuration_1.mp4", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/blobby_1.mp4", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/cellular_1.mp4", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/lines_1.mp4", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/Interference.mov", "used": "/art/digital.html" },
+    { "type": "video", "src": "https://d1w75jisb8fw0q.cloudfront.net/nbody_1.mp4", "used": "/art/digital.html" },
+    { "type": "image", "src": "https://i.imgur.com/N3b0wIK.jpg", "used": "/writing/my-computer-history.html" },
+    { "type": "embed", "src": "https://player.vimeo.com/video/16518652", "used": "/apps/polychord.html" },
+    { "type": "embed", "src": "https://player.vimeo.com/video/33891490", "used": "/apps/microcosm.html" },
+    { "type": "embed", "src": "https://player.vimeo.com/video/39007669", "used": "/apps/microcosm.html" }
+  ],
+  "legacy": {
+    "note": "These files exist but are not linked from the current site",
+    "files": [
+      "/robots.txt.html",
+      "/style/global.css",
+      "/style/article.css",
+      "/style/gallery.css",
+      "/style/prism.css",
+      "/js/prism.js"
+    ],
+    "brokenReferences": [
+      { "file": "/robots.txt.html", "reference": "/assets/images/greg-crop.jpg", "note": "Image does not exist on disk" }
+    ]
+  }
+}
