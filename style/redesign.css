@@ -191,7 +191,11 @@ body {
    Featured Work Grid
    =================================================== */
 .work-section {
-  padding: 48px 0 80px;
+  padding: 32px 0 56px;
+}
+
+.work-section + .work-section {
+  padding-top: 0;
 }
 
 .work-section .section-label {
@@ -201,7 +205,38 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-secondary);
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+/* Section header — label on the left, "see all" link on the right */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: var(--max-width);
+  margin: 0 auto 24px;
+  padding: 0 var(--gutter);
+}
+
+.section-header .section-label {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.section-link {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.section-link:hover {
+  color: var(--text);
+}
+
+/* Standalone label (no "see all" link) */
+.work-section > .section-label {
   padding: 0 var(--gutter);
   max-width: var(--max-width);
   margin-left: auto;
@@ -217,32 +252,21 @@ body {
   padding: 0 var(--gutter);
 }
 
-/* Asymmetric card spans */
-.work-card:nth-child(1) { grid-column: span 7; }
-.work-card:nth-child(2) { grid-column: span 5; }
-.work-card:nth-child(3) { grid-column: span 5; }
-.work-card:nth-child(4) { grid-column: span 7; }
-.work-card:nth-child(5) { grid-column: span 4; }
-.work-card:nth-child(6) { grid-column: span 4; }
-.work-card:nth-child(7) { grid-column: span 4; }
-.work-card:nth-child(8) { grid-column: span 4; }
-/* Surprise cards injected by JS */
-.work-card:nth-child(9) { grid-column: span 4; }
-.work-card:nth-child(10) { grid-column: span 4; }
+/* Featured — 7/5 asymmetric, second card aligned to bottom */
+.featured-grid > .work-card:nth-child(1) { grid-column: span 7; }
+.featured-grid > .work-card:nth-child(2) { grid-column: span 5; align-self: end; }
+
+/* Videos, Apps & Art — clean equal 3-up grid */
+.videos-grid > .work-card,
+.apps-grid > .work-card,
+.art-grid > .work-card {
+  grid-column: span 4;
+}
 
 /* Card styles */
 .work-card {
   position: relative;
-  overflow: hidden;
-}
-
-/* Align shorter cards to bottom of row — creates tension, not gaps */
-.work-card:nth-child(2) {
-  align-self: end;
-}
-
-.work-card:nth-child(3) {
-  align-self: end;
+  overflow: visible;
 }
 
 .work-card a {
@@ -296,6 +320,79 @@ body {
   font-size: 12px;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+}
+
+/* Image-overlay badges (view counts, accolades) */
+.work-card a {
+  position: relative;
+}
+
+.work-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.72);
+  padding: 6px 10px;
+  border-radius: 3px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.work-badge-views {
+  background: rgba(196, 73, 47, 0.92); /* accent */
+}
+
+.work-badge-new {
+  background: rgba(17, 17, 17, 0.92);
+}
+
+/* ===================================================
+   Announcement strip (under hero)
+   =================================================== */
+.announce {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 10px 16px;
+  background: var(--dark);
+  color: var(--white);
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.announce:hover {
+  transform: translateY(-1px);
+  background: #1d1d1d;
+}
+
+.announce-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--white);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.announce-text {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.announce-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ===================================================
@@ -470,21 +567,28 @@ body {
     font-size: 14vw;
   }
 
+  /* Collapse to a simpler 6-col grid on tablet, but keep some asymmetry */
   .work-grid {
     grid-template-columns: repeat(6, 1fr);
     gap: 16px;
   }
 
-  .work-card:nth-child(1) { grid-column: span 6; }
-  .work-card:nth-child(2) { grid-column: span 6; }
-  .work-card:nth-child(3) { grid-column: span 3; }
-  .work-card:nth-child(4) { grid-column: span 3; }
-  .work-card:nth-child(5) { grid-column: span 3; }
-  .work-card:nth-child(6) { grid-column: span 3; }
-  .work-card:nth-child(7) { grid-column: span 3; }
-  .work-card:nth-child(8) { grid-column: span 3; }
-  .work-card:nth-child(9) { grid-column: span 3; }
-  .work-card:nth-child(10) { grid-column: span 3; }
+  .featured-grid > .work-card:nth-child(1),
+  .featured-grid > .work-card:nth-child(2) { grid-column: span 6; align-self: auto; }
+
+  .videos-grid > .work-card:nth-child(1) { grid-column: span 6; }
+  .videos-grid > .work-card:nth-child(2) { grid-column: span 3; align-self: end; }
+  .videos-grid > .work-card:nth-child(3) { grid-column: span 3; align-self: end; }
+
+  .apps-grid > .work-card:nth-child(1) { grid-column: span 4; }
+  .apps-grid > .work-card:nth-child(2) { grid-column: span 2; align-self: end; }
+  .apps-grid > .work-card:nth-child(3) { grid-column: span 3; }
+  .apps-grid > .work-card:nth-child(4) { grid-column: span 3; align-self: end; }
+
+  .art-grid > .work-card:nth-child(1) { grid-column: span 3; }
+  .art-grid > .work-card:nth-child(2) { grid-column: span 3; }
+  .art-grid > .work-card:nth-child(3) { grid-column: span 3; }
+  .art-grid > .work-card:nth-child(4) { grid-column: span 3; }
 
   .about-inner {
     gap: 32px;
@@ -545,8 +649,10 @@ body {
     gap: 16px;
   }
 
-  .work-card:nth-child(n) {
+  .work-grid > .work-card,
+  .work-grid > .work-card:nth-child(n) {
     grid-column: span 1;
+    align-self: auto;
   }
 
   .work-card-image {
