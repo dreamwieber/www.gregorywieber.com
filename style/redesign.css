@@ -187,6 +187,16 @@ body {
   line-height: 1.5;
 }
 
+.hero-news {
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 /* ===================================================
    Featured Work Grid
    =================================================== */
@@ -350,6 +360,58 @@ body {
 
 .work-badge-new {
   background: rgba(17, 17, 17, 0.92);
+}
+
+.work-badge-award {
+  background: rgba(17, 17, 17, 0.92);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+
+.work-badge-award .laurel {
+  width: 14px;
+}
+
+/* ===================================================
+   Accolade (laurel-bookended award text under H1)
+   =================================================== */
+.accolade {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.laurel {
+  display: inline-block;
+  width: 22px;
+  aspect-ratio: 332 / 702;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+}
+
+.laurel-left {
+  -webkit-mask-image: url('../assets/images/laurel-left.png');
+  mask-image: url('../assets/images/laurel-left.png');
+}
+
+.laurel-right {
+  -webkit-mask-image: url('../assets/images/laurel-right.png');
+  mask-image: url('../assets/images/laurel-right.png');
 }
 
 /* ===================================================
