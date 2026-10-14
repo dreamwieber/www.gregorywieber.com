@@ -1110,6 +1110,11 @@ body {
   max-width: 560px;
 }
 
+.index-page .index-intro a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
