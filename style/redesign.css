@@ -1458,3 +1458,134 @@ body {
     max-height: 60vh;
   }
 }
+
+/* ===================================================
+   Gregory Builds — thumbnail + subscribe pitch
+   =================================================== */
+.builds-grid > .work-card { grid-column: span 3; }
+
+.builds-pitch {
+  grid-column: 5 / span 8; /* left edge lines up with the 2nd Apps card */
+  align-self: center;
+  max-width: 420px;
+}
+
+.builds-pitch p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 420px;
+  margin: 0 0 12px;
+}
+
+.builds-pitch p a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.builds-pitch p a:hover {
+  text-decoration: underline;
+}
+
+.builds-subscribe {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent);
+  padding: 10px 16px;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.builds-subscribe:hover {
+  background: var(--dark);
+}
+
+@media (max-width: 900px) {
+  .builds-grid > .work-card { grid-column: span 3; }
+  .builds-pitch { grid-column: span 3; }
+}
+
+@media (max-width: 600px) {
+  .builds-grid > .work-card,
+  .builds-pitch { grid-column: span 1; }
+  .builds-pitch { padding-top: 8px; }
+}
+
+/* Videos — four across on desktop, 2x2 on tablet */
+.videos-grid > .work-card { grid-column: span 3; }
+
+@media (max-width: 900px) {
+  .videos-grid > .work-card:nth-child(n) { grid-column: span 3; align-self: auto; }
+}
+
+@media (max-width: 600px) {
+  .videos-grid > .work-card:nth-child(n) { grid-column: span 1; }
+}
+
+/* Featured with a single card — full width, 16:9 */
+.featured-grid.featured-solo > .work-card:nth-child(1) { grid-column: 1 / -1; }
+.featured-solo .work-card-image { aspect-ratio: 16 / 9; }
+
+/* Videos lead row — big thumbnail left, channel pitch right */
+.videos-lead { margin-bottom: 40px; }
+.videos-lead > .work-card { grid-column: span 6; }
+.videos-lead > .builds-pitch { grid-column: 7 / span 6; } /* lines up with the 3rd video card */
+
+@media (max-width: 900px) {
+  .videos-lead > .work-card,
+  .videos-lead > .builds-pitch { grid-column: span 3; }
+}
+
+@media (max-width: 600px) {
+  .videos-lead > .work-card,
+  .videos-lead > .builds-pitch { grid-column: span 1; }
+  .videos-lead { margin-bottom: 24px; }
+}
+
+/* Center channel pitches on the thumbnail itself, not thumbnail + caption:
+   the card's image and caption become separate grid rows. */
+.builds-grid,
+.videos-lead { row-gap: 0; }
+
+.builds-grid > .work-card,
+.videos-lead > .work-card { display: contents; }
+
+.builds-grid > .work-card > a,
+.builds-grid > .work-card > .work-card-label { grid-column: 1 / span 3; }
+.videos-lead > .work-card > a,
+.videos-lead > .work-card > .work-card-label { grid-column: 1 / span 6; }
+
+.builds-grid > .work-card > a,
+.videos-lead > .work-card > a { grid-row: 1; }
+.builds-grid > .work-card > .work-card-label,
+.videos-lead > .work-card > .work-card-label { grid-row: 2; }
+
+.builds-grid > .builds-pitch,
+.videos-lead > .builds-pitch { grid-row: 1; align-self: center; }
+
+@media (max-width: 900px) {
+  .builds-grid > .work-card > a,
+  .builds-grid > .work-card > .work-card-label,
+  .videos-lead > .work-card > a,
+  .videos-lead > .work-card > .work-card-label { grid-column: 1 / span 3; }
+  .builds-grid > .builds-pitch,
+  .videos-lead > .builds-pitch { grid-column: 4 / span 3; }
+}
+
+@media (max-width: 600px) {
+  .builds-grid > .work-card > a,
+  .builds-grid > .work-card > .work-card-label,
+  .builds-grid > .builds-pitch,
+  .videos-lead > .work-card > a,
+  .videos-lead > .work-card > .work-card-label,
+  .videos-lead > .builds-pitch { grid-column: 1 / -1; grid-row: auto; }
+  .builds-grid > .builds-pitch,
+  .videos-lead > .builds-pitch { padding-top: 20px; }
+}
