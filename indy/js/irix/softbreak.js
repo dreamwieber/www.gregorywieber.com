@@ -27,9 +27,28 @@ export function createSoftBreak(container, { audio, showPromo, hidePromo }) {
   const keys = {};
   try { best = +(localStorage.getItem('indy.softbreak.best') || 0); } catch { /* ignore */ }
 
+  // The soft drifting backdrop is all large gradients, the slowest thing a 2D canvas can fill
+  // (Safari especially). It is painted small, every few frames, and stretched into place.
+  const BG_DIV = 4, bgLayer = document.createElement('canvas'), bgCtx = bgLayer.getContext('2d');
+  let bgAge = 0;
+  function paintBackdrop() {
+    const c = bgCtx, k = 1 / BG_DIV;
+    c.setTransform(k, 0, 0, k, 0, 0);
+    const bg = c.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, '#f3f4fa'); bg.addColorStop(1, '#dfe3f1');
+    c.fillStyle = bg; c.fillRect(0, 0, W + BG_DIV, H + BG_DIV);
+    for (let i = 0; i < 4; i++) {
+      const x = W * (0.2 + 0.2 * i) + Math.sin(time * 0.2 + i * 2) * 40 * U, y = H * (0.35 + 0.14 * i) + Math.cos(time * 0.17 + i) * 30 * U, r = (90 + i * 22) * U;
+      const g = c.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, ['rgba(255,170,150,0.20)', 'rgba(150,190,255,0.20)', 'rgba(255,215,130,0.18)', 'rgba(180,160,255,0.18)'][i]); g.addColorStop(1, 'rgba(255,255,255,0)');
+      c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2);
+    }
+  }
+
   function resize() {
     W = Math.max(200, container.clientWidth - 2); H = Math.max(260, container.clientHeight - 2);
-    DPR = Math.min(2.5, (window.devicePixelRatio || 1) * 1.25);
+    DPR = Math.min(2, window.devicePixelRatio || 1);
+    bgLayer.width = Math.max(2, Math.ceil(W / BG_DIV)); bgLayer.height = Math.max(2, Math.ceil(H / BG_DIV)); bgAge = 0;
     canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
     U = Math.min(W / 440, H / 580);
     paddle.w = 90 * U; paddle.h = 15 * U; paddle.y = H - 40 * U;
@@ -216,16 +235,9 @@ export function createSoftBreak(container, { audio, showPromo, hidePromo }) {
   }
   function draw() {
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    const bg = ctx.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0, '#f3f4fa'); bg.addColorStop(1, '#dfe3f1');
-    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-    // slow soft blobs in the background
-    for (let i = 0; i < 4; i++) {
-      const x = W * (0.2 + 0.2 * i) + Math.sin(time * 0.2 + i * 2) * 40 * U, y = H * (0.35 + 0.14 * i) + Math.cos(time * 0.17 + i) * 30 * U, r = (90 + i * 22) * U;
-      const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, ['rgba(255,170,150,0.20)', 'rgba(150,190,255,0.20)', 'rgba(255,215,130,0.18)', 'rgba(180,160,255,0.18)'][i]); g.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
-    }
+    if (bgAge-- <= 0) { paintBackdrop(); bgAge = 3; }
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'low';
+    ctx.drawImage(bgLayer, 0, 0, W, H);
     // HUD
     ctx.fillStyle = '#39415c'; ctx.textBaseline = 'middle';
     ctx.font = `600 ${13 * U}px -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif`;

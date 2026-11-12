@@ -73,24 +73,33 @@ body.muted #btn-sound { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 /* ---------- the tube: DOM desktop aligned to the 3D CRT ---------- */
 #tube {
   position: fixed; left: 0; top: 0; width: 100px; height: 100px; z-index: 10;
-  transform-origin: 0 0; overflow: hidden; border-radius: 14px / 12px;
+  transform-origin: 0 0; overflow: hidden;
   opacity: 0; visibility: hidden; pointer-events: none;
   transition: opacity 0.28s ease, visibility 0s linear 0.28s;
   background: #000;
 }
 #tube.on { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.28s ease; }
 #irix { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+/* The CRT overlay is its own compositor layer, so animated content underneath (a game canvas)
+   never forces these gradients to repaint. The tube's rounded corners are painted here as four
+   dark corner pieces instead of a rounded clip on #tube: clipping live content to a rounded
+   rect made Safari fall back to slow compositing, worst at large window sizes. */
 #tube-fx {
   position: absolute; inset: 0; pointer-events: none; z-index: 5;
+  will-change: transform; transform: translateZ(0);
+  --tc: #050506;
   background:
+    radial-gradient(circle at 100% 100%, transparent 13.5px, var(--tc) 14.5px) left top / 14px 14px no-repeat,
+    radial-gradient(circle at 0 100%, transparent 13.5px, var(--tc) 14.5px) right top / 14px 14px no-repeat,
+    radial-gradient(circle at 100% 0, transparent 13.5px, var(--tc) 14.5px) left bottom / 14px 14px no-repeat,
+    radial-gradient(circle at 0 0, transparent 13.5px, var(--tc) 14.5px) right bottom / 14px 14px no-repeat,
     radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.22) 100%),
     linear-gradient(118deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 28%),
     repeating-linear-gradient(to bottom, rgba(0,0,0,0.07) 0, rgba(0,0,0,0.07) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 3px);
   box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
-  border-radius: inherit;
+  border-radius: 14px;
 }
-body.compact #tube { border-radius: 0; }
-body.compact #tube-fx { background: none; box-shadow: none; }
+body.compact #tube-fx { background: none; box-shadow: none; border-radius: 0; }
 
 /* ---------- loader ---------- */
 #boot {
