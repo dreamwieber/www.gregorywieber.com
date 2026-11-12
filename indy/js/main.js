@@ -9,7 +9,7 @@ import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { makeTextures, drawCubeLogo } from './scene/textures.js';
 import { makeMaterials, buildIndy, buildMonitor, buildIndyCam, buildKeyboard, buildMouse, cable, SCREEN_W, SCREEN_H } from './scene/hardware.js';
 import { buildRoom, buildEnvScene, ROOM } from './scene/room.js';
-import { buildLamp, buildLavaLamp, buildTapes, buildCDs, buildMug, buildNotebook, buildBrochure, buildMousePad, buildFern, buildFrame } from './scene/props.js';
+import { buildLamp, buildLavaLamp, buildTapes, buildCDs, buildCassette, buildMug, buildNotebook, buildBrochure, buildMousePad, buildFern, buildFrame } from './scene/props.js';
 import { lerp, clamp, easeInOut, setMaxAnisotropy } from './scene/util.js';
 import { createAudio } from './audio.js';
 import { createDesktop } from './irix/desktop.js';
@@ -137,6 +137,10 @@ async function init() {
   tapes.group.position.set(0.635, 0, 0.055);
   tapes.group.rotation.y = deg(-13);
   scene.add(tapes.group);
+  const cassette = buildCassette(0.42);
+  cassette.group.position.set(0.405, 0, -0.205); // propped against the lava lamp's base
+  cassette.group.rotation.y = deg(8);
+  scene.add(cassette.group);
   const cds = buildCDs([
     { key: 'polychord', title: 'Polychord', sub: 'The iPad instrument', image: 'assets/tex/polychord.jpg', bar: '#17181c' },
     { key: 'vibescape', title: 'Vibescape', sub: 'Immersive worlds · Vision Pro', image: 'assets/tex/vibescape.jpg', bar: '#131a2a' },
@@ -369,6 +373,7 @@ async function init() {
     const a = APPS.find((x) => x.key === k);
     register(c, { id: 'cd-' + k, label: a.name, sub: k === 'softbreak' ? 'Play the IRIX port' : a.tagline, lift: c, liftAmt: 0.004, onClick: inIrix(() => desktop.launch(k === 'softbreak' ? 'softbreak' : 'app', k)) });
   });
+  register(cassette.group, { id: 'cassette', label: 'imaiorami', sub: 'Colleen’s new music project', lift: cassette.body, liftAmt: 0.004, onClick: inIrix(() => desktop.launch('music')) });
   register(mug.group, { id: 'mug', label: 'Buy me a coffee', sub: 'Support the videos on Patreon ↗', lift: mug.group, liftAmt: 0.008, onClick: () => { audio.wall(); openExternal(LINKS.patreon); } });
   register(notebook.group, { id: 'notebook', label: 'Gregory Builds', sub: 'Behind the scenes · watch the latest', lift: notebook.group, liftAmt: 0.004, onClick: inIrix(() => desktop.launch('video', BUILDS[0])) });
   register(brochure.group, { id: 'brochure', label: 'The brochure SGI mailed back', sub: 'Read “My Computer History”', lift: brochure.group, liftAmt: 0.004, onClick: () => { audio.paper(); enterComputer(() => desktop.launch('page', { url: '../writing/my-computer-history.html', title: 'My Computer History' })); } });

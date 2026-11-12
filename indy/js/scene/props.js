@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
 import { projectUV, shadowed, canvasTex, radialTex, rng, contactShadow, decal } from './util.js';
-import { HAND, siliconGraphicsTex, drawCubeLogo } from './textures.js';
+import { HAND, siliconGraphicsTex, drawCubeLogo, drawCassette } from './textures.js';
 
 const deg = THREE.MathUtils.degToRad;
 const loader = new THREE.TextureLoader();
@@ -289,6 +289,28 @@ export function buildCDs(list) {
 // ---------------------------------------------------------------------------
 // Coffee mug with steam
 // ---------------------------------------------------------------------------
+// A compact cassette (100 x 64 x 12 mm) stood on its long edge, leaning back so the label faces the room.
+export function buildCassette(lean = 0.3) {
+  const g = new THREE.Group();
+  g.name = 'cassette';
+  const W = 0.1004, D = 0.0638, H = 0.012;
+  const face = canvasTex(512, 326, (ctx, w, h) => drawCassette(ctx, w, h));
+  const shell = new THREE.MeshStandardMaterial({ color: 0x2b2c31, roughness: 0.42 });
+  const top = new THREE.MeshStandardMaterial({ map: face, roughness: 0.5 });
+  const body = shadowed(new THREE.Mesh(new THREE.BoxGeometry(W, H, D), [shell, shell, top, shell, shell, shell]));
+  // built face-up, then tipped about its lower long edge
+  const tip = new THREE.Group();
+  body.position.set(0, H / 2, -D / 2);
+  tip.add(body);
+  tip.rotation.x = Math.PI / 2 - lean;
+  g.add(tip);
+  const cs = contactShadow(W + 0.03, 0.05, 0.5);
+  cs.position.z = -0.012;
+  cs.position.y = 0.0005;
+  g.add(cs);
+  return { group: g, body: tip };
+}
+
 export function buildMug() {
   const g = new THREE.Group();
   g.name = 'mug';

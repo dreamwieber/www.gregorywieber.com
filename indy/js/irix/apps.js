@@ -1,7 +1,7 @@
 // The applications that run on the toy IRIX desktop.
 import { iconURL, iconFor } from './icons.js';
 import { FS, APPS, LINKS, HINV, README, VIDEOS, BUILDS, resolvePath } from '../site.js';
-import { drawCubeLogo } from '../scene/textures.js';
+import { drawCubeLogo, drawCassette } from '../scene/textures.js';
 import { createFsn } from './fsn.js';
 import { createSoftBreak } from './softbreak.js';
 
@@ -230,6 +230,45 @@ export function makeApps(desk) {
     });
   }
 
+  // ---------------------------------------------------------------- the cassette
+  function music() {
+    return desk.createWindow({
+      id: 'music', title: 'soundplayer — imaiorami', w: 470, h: 432,
+      build: (body) => {
+        const wrap = el('div', 'ix-show ix-music');
+        const c = document.createElement('canvas'); c.width = 600; c.height = 384;
+        drawCassette(c.getContext('2d'), 600, 384);
+        const deck = el('div', 'ix-deck'); deck.appendChild(c);
+        deck.appendChild(el('div', 'tap', '▶ Tap the tape to play “Counting Comets”'));
+        deck.title = 'Play “Counting Comets”';
+        deck.addEventListener('click', () => {
+          if (deck.querySelector('iframe')) return;
+          audio.click();
+          if (location.protocol === 'file:') { desk.external(LINKS.countingComets); return; }
+          deck.innerHTML = ''; deck.classList.add('playing');
+          const f = el('iframe');
+          f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          f.allowFullscreen = true; f.title = 'imaiorami — Counting Comets';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.src = 'https://www.youtube-nocookie.com/embed/b2Z1TornoHo?autoplay=1&rel=0&modestbranding=1';
+          deck.appendChild(f);
+        });
+        const info = el('div', 'ix-info', `<h2>imaiorami</h2><p>Listen to Colleen's new music project imaiorami, wherever you stream music.</p>`);
+        info.appendChild(actionButtons([{ label: 'imaiorami.com ↗', url: LINKS.imaiorami, primary: true }]));
+        wrap.append(deck, info); body.appendChild(wrap);
+      },
+      preview: (ctx, x, y, w, h) => {
+        ctx.fillStyle = '#b4b4b4'; ctx.fillRect(x, y, w, h);
+        ctx.fillStyle = '#3b3550'; ctx.fillRect(x + 3, y + 3, w - 6, 170);
+        ctx.save(); ctx.translate(x + w / 2 - 120, y + 12); drawCassette(ctx, 240, 154); ctx.restore();
+        ctx.fillStyle = '#000'; ctx.font = 'italic 700 22px Helvetica, Arial, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText('imaiorami', x + 16, y + 200);
+        ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(x + 16, y + 224, w - 60, 5); ctx.fillRect(x + 16, y + 240, w - 150, 5);
+        ctx.fillStyle = '#2f5f9e'; ctx.fillRect(x + 16, y + 268, 170, 30);
+      },
+    });
+  }
+
   // ---------------------------------------------------------------- shell
   function consoleApp() {
     let me = null;
@@ -239,8 +278,9 @@ export function makeApps(desk) {
         me = win;
         const term = el('div', 'ix-term');
         const out = el('div');
-        const line = el('div', 'in', '<span class="p"></span><input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Shell input">');
-        const prompt = line.querySelector('.p'), input = line.querySelector('input');
+        const line = el('div', 'in', '<span class="p"></span><textarea rows="1" wrap="off" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Shell command"></textarea>');
+        // a one-line textarea, not an <input>: Safari took the input for a login field and kept offering saved passwords
+        const prompt = line.querySelector('.p'), input = line.querySelector('textarea');
         term.append(out, line); body.appendChild(term);
         let cwd = FS; const hist = []; let hi = 0;
         const short = (n) => (n === FS ? '~' : '~' + n.path.slice(FS.path.length));
@@ -295,7 +335,7 @@ export function makeApps(desk) {
         };
         input.addEventListener('keydown', (ev) => {
           ev.stopPropagation();
-          if (ev.key === 'Enter') { const v = input.value; input.value = ''; run(v); }
+          if (ev.key === 'Enter') { ev.preventDefault(); const v = input.value.replace(/[\r\n]+/g, ' '); input.value = ''; run(v); }
           else if (ev.key === 'ArrowUp') { if (hi > 0) input.value = hist[--hi]; ev.preventDefault(); }
           else if (ev.key === 'ArrowDown') { input.value = hi < hist.length - 1 ? hist[++hi] : ((hi = hist.length), ''); ev.preventDefault(); }
           else if (ev.key === 'Tab') {
@@ -310,7 +350,8 @@ export function makeApps(desk) {
           if (ev.key === 'Escape') { input.blur(); desk.exit(); }
         });
         term.addEventListener('click', () => { if (!String(getSelection())) input.focus({ preventScroll: true }); });
-        win.onActive = (on) => { if (on && desk.visible && !desk.compact) setTimeout(() => input.focus({ preventScroll: true }), 30); };
+        // give the keyboard back when another window comes forward (a game needs the arrow keys)
+        win.onActive = (on) => { if (!on) input.blur(); else if (desk.visible && !desk.compact) setTimeout(() => input.focus({ preventScroll: true }), 30); };
         setPrompt();
         print(`IRIX Release 5.3 IP22 indy\nCopyright 1987-1994 Silicon Graphics, Inc. All Rights Reserved.\nLast login: ${new Date().toDateString()} on ttyq0\n\nWelcome, guest. Type <span class="x">help</span> — or just <span class="x">ls</span>.`);
         win._focusInput = () => input.focus({ preventScroll: true });
@@ -391,5 +432,5 @@ export function makeApps(desk) {
     });
   }
 
-  return { fm, readme, about, page, video, app, console: consoleApp, fsn, softbreak };
+  return { fm, readme, about, page, video, app, console: consoleApp, fsn, softbreak, music };
 }

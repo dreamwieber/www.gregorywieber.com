@@ -22,6 +22,8 @@ export const LINKS = {
   vibescape: 'https://apps.apple.com/us/app/vibescape/id6476827678',
   polychord: 'https://apps.apple.com/us/app/polychord/id402625491',
   farmInsta: 'https://www.instagram.com/cleryfarm',
+  imaiorami: 'https://imaiorami.com',
+  countingComets: 'https://www.youtube.com/watch?v=b2Z1TornoHo',
 };
 
 export const VIDEOS = [

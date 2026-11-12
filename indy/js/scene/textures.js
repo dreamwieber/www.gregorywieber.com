@@ -375,6 +375,52 @@ export function indyWordmarkTex() {
   });
 }
 
+// A compact cassette seen face-on, drawn into a w x h box (real proportions are 100 : 64).
+export function drawCassette(ctx, w, h, { title = 'imaiorami', side = 'A' } = {}) {
+  const rr = (x, y, ww, hh, r) => { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + ww, y, x + ww, y + hh, r); ctx.arcTo(x + ww, y + hh, x, y + hh, r); ctx.arcTo(x, y + hh, x, y, r); ctx.arcTo(x, y, x + ww, y, r); ctx.closePath(); };
+  ctx.save();
+  // shell
+  rr(0, 0, w, h, h * 0.05); ctx.fillStyle = '#2b2c31'; ctx.fill();
+  rr(w * 0.012, h * 0.018, w * 0.976, h * 0.964, h * 0.04); ctx.strokeStyle = 'rgba(255,255,255,0.10)'; ctx.lineWidth = Math.max(1, h * 0.008); ctx.stroke();
+  // paper label with three stripes
+  rr(w * 0.055, h * 0.07, w * 0.89, h * 0.63, h * 0.035); ctx.fillStyle = '#f2ead6'; ctx.fill();
+  ctx.save(); ctx.clip();
+  [['#ff7a59', 0.565], ['#ffc857', 0.61], ['#3aa0d8', 0.655]].forEach(([c, y]) => { ctx.fillStyle = c; ctx.fillRect(0, h * y, w, h * 0.045); });
+  ctx.restore();
+  // handwritten title on ruled lines
+  ctx.strokeStyle = 'rgba(40,60,110,0.22)'; ctx.lineWidth = Math.max(1, h * 0.005);
+  ctx.beginPath(); ctx.moveTo(w * 0.17, h * 0.245); ctx.lineTo(w * 0.9, h * 0.245); ctx.stroke();
+  ctx.fillStyle = '#1d2a55'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.font = `700 ${h * 0.135}px ${HAND}`;
+  ctx.fillText(title, w * 0.53, h * 0.225);
+  ctx.font = `700 ${h * 0.1}px Helvetica, Arial, sans-serif`; ctx.fillStyle = '#c0452c';
+  ctx.fillText(side, w * 0.11, h * 0.215);
+  // window and reels
+  rr(w * 0.24, h * 0.3, w * 0.52, h * 0.225, h * 0.03); ctx.fillStyle = '#17181c'; ctx.fill();
+  const reel = (cx, pack) => {
+    const cy = h * 0.412;
+    ctx.fillStyle = '#4a3326'; ctx.beginPath(); ctx.arc(cx, cy, h * pack, 0, 6.283); ctx.fill();
+    ctx.fillStyle = '#ece8dc'; ctx.beginPath(); ctx.arc(cx, cy, h * 0.062, 0, 6.283); ctx.fill();
+    ctx.fillStyle = '#17181c'; ctx.beginPath(); ctx.arc(cx, cy, h * 0.034, 0, 6.283); ctx.fill();
+    ctx.strokeStyle = '#ece8dc'; ctx.lineWidth = h * 0.014;
+    for (let i = 0; i < 6; i++) { const a = (i / 6) * 6.283 + 0.3; ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * h * 0.02, cy + Math.sin(a) * h * 0.02); ctx.lineTo(cx + Math.cos(a) * h * 0.036, cy + Math.sin(a) * h * 0.036); ctx.stroke(); }
+  };
+  ctx.save(); rr(w * 0.24, h * 0.3, w * 0.52, h * 0.225, h * 0.03); ctx.clip();
+  reel(w * 0.345, 0.135); reel(w * 0.655, 0.088);
+  ctx.fillStyle = 'rgba(255,255,255,0.07)'; ctx.fillRect(w * 0.24, h * 0.3, w * 0.52, h * 0.07);
+  ctx.restore();
+  // the raised section along the tape edge
+  ctx.fillStyle = '#1f2024'; ctx.beginPath();
+  ctx.moveTo(w * 0.2, h * 0.76); ctx.lineTo(w * 0.8, h * 0.76); ctx.lineTo(w * 0.855, h * 0.985); ctx.lineTo(w * 0.145, h * 0.985); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#0c0c0e';
+  [[0.29, 0.9, 0.02], [0.71, 0.9, 0.02], [0.4, 0.86, 0.014], [0.6, 0.86, 0.014]].forEach(([x, y, r]) => { ctx.beginPath(); ctx.arc(w * x, h * y, w * r, 0, 6.283); ctx.fill(); });
+  rr(w * 0.455, h * 0.9, w * 0.09, h * 0.05, h * 0.01); ctx.fill();
+  // screws
+  ctx.fillStyle = '#8d8f96';
+  [[0.035, 0.06], [0.965, 0.06], [0.035, 0.94], [0.965, 0.94], [0.5, 0.735]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(w * x, h * y, h * 0.018, 0, 6.283); ctx.fill(); });
+  ctx.restore();
+}
+
 export function textTex(text, { w = 512, h = 128, font = '600 64px Helvetica, Arial, sans-serif', color = '#222', bg = null, align = 'center', pad = 16 } = {}) {
   return canvasTex(w, h, (ctx) => {
     if (bg) { ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h); } else ctx.clearRect(0, 0, w, h);
