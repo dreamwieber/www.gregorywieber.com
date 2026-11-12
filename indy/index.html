@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Indy — Gregory Wieber</title>
+  <meta name="description" content="Gregory Wieber's Silicon Graphics Indy. Sit down at a 1993 workstation, log in to IRIX, fly through the file system in 3D, and play a round of Soft Break.">
+  <meta property="og:title" content="Gregory Wieber's Indy">
+  <meta property="og:description" content="A 1993 Silicon Graphics workstation you can sit down at. Log in, fly the 3D file system, play Soft Break.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregorywieber.com/indy/">
+  <meta property="og:image" content="https://gregorywieber.com/indy/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="icon" type="image/svg+xml" href="assets/console-icon.svg">
+  <link rel="stylesheet" href="css/scene.css">
+  <link rel="stylesheet" href="css/irix.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="loading">
+  <canvas id="gl" aria-label="A Silicon Graphics Indy workstation on a desk"></canvas>
+
+  <!-- The simulated IRIX desktop: positioned over the 3D picture tube -->
+  <div id="tube" aria-hidden="true">
+    <div id="irix"></div>
+    <div id="tube-fx"></div>
+  </div>
+
+  <!-- Heads-up chrome around the scene -->
+  <header id="hud">
+    <a class="hud-mark" href="../" title="Back to gregorywieber.com">
+      <span class="hud-name">Gregory Wieber</span>
+      <span class="hud-sub">Indy · 1993</span>
+    </a>
+    <div class="hud-buttons">
+      <button id="btn-back" class="hud-btn hud-back" hidden>← Back to the desk <kbd>Esc</kbd></button>
+      <button id="btn-light" class="hud-btn" title="Day / night" aria-label="Toggle day and night"><span class="ico"></span></button>
+      <button id="btn-sound" class="hud-btn" title="Sound" aria-label="Toggle sound"><span class="ico"></span></button>
+    </div>
+  </header>
+  <div id="hint" class="hint"></div>
+  <div id="tip" class="tip" role="tooltip"></div>
+
+  <!-- PROM-style loader -->
+  <div id="boot">
+    <div class="boot-dialog">
+      <div class="boot-title">System Maintenance</div>
+      <div class="boot-row">
+        <div class="boot-logo" id="boot-logo"></div>
+        <div>
+          <p id="boot-msg">Starting up the system…</p>
+          <div class="boot-bar"><i id="boot-bar"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="fallback"><h1>Gregory Wieber's Indy</h1><p>This page is a 3D scene and needs JavaScript. The regular site is at <a href="../">gregorywieber.com</a>.</p></div>
+  </noscript>
+  <div id="fallback" class="fallback" hidden>
+    <h1>Gregory Wieber's Indy</h1>
+    <p>This page is a 3D scene and your browser couldn't start WebGL.</p>
+    <p><a href="../">gregorywieber.com</a> · <a href="https://www.youtube.com/@dreamwieber">YouTube</a> · <a href="https://apposite.ai">Apposite</a> · <a href="https://apps.apple.com/us/app/soft-break/id6825526231">Soft Break</a></p>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

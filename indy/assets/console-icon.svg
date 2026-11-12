@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100">
+<defs><radialGradient id="w" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#8f55c8"/><stop offset="1" stop-color="#4f2684"/></radialGradient></defs>
+<rect width="80" height="100" fill="#000"/><rect x="1" y="1" width="78" height="98" fill="#b9b9b9"/>
+<path d="M1 1h78v2H3v96H1z" fill="#ececec"/><path d="M79 1v98H1v-2h76V1z" fill="#6b6b6b"/>
+<path d="M5 5h70v1H6v69H5z" fill="#6b6b6b"/><path d="M75 5v71H5v-1h69V5z" fill="#ececec"/>
+<rect x="6" y="6" width="68" height="69" fill="#000"/><rect x="7" y="7" width="66" height="67" fill="url(#w)"/>
+<path d="M4 79h72v1H4z" fill="#6b6b6b"/><path d="M4 80h72v1H4z" fill="#ececec"/>
+<g stroke="#2b2620" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round">
+<ellipse cx="43" cy="60" rx="24" ry="6" fill="#000" opacity="0.22" stroke="none"/>
+<path d="M22 53c-9 2-10 8-4 10s6 4 11 5" fill="none" stroke="#2b2620" stroke-width="3"/><path d="M22 53c-9 2-10 8-4 10s6 4 11 5" fill="none" stroke="#d6cdb2" stroke-width="1.6"/>
+<ellipse cx="43" cy="55" rx="11" ry="3.4" fill="#c9c0a4"/>
+<path d="M18 22l7-4 1 33-7-4z" fill="#bdb294"/><path d="M20 26v8M21.5 25v8M23 24.4v8" stroke="#8f8468" stroke-width="0.6"/>
+<path d="M25 18l34-3 1 33-34 4z" fill="#e6dec6"/>
+<path d="M29 22.5l27-2.4 0.8 22.6-27 3.2z" fill="#22357f"/>
+<path d="M32 36.5q3-2.2 6-1t6-1 6-1 4.5-1.2M32 40.3q3-2.2 6-1t6-1 6-1 4.5-1.2M32 44q3-2.2 6-1t6-1 6-1 4.5-1.2" fill="none" stroke="#7fb0ff" stroke-width="1.2"/>
+<rect x="53" y="45.6" width="3.4" height="1.6" fill="#3ddc6a" stroke-width="0.5"/>
+<path d="M29 63l33-9 10 5-32 10z" fill="#e6dec6"/><path d="M29 63l11 6v2.6l-11-6zM40 69l32-10v2.6L40 71.6z" fill="#b4a98b"/>
+<path d="M34 62.6l27-7.4M36.6 64l27-7.6M39.4 65.4l27-7.8" stroke="#9c9176" stroke-width="1.5" stroke-dasharray="2.2 1" fill="none"/>
+</g>
+<text x="40" y="94" text-anchor="middle" font-family="Georgia, 'Times New Roman', Times, serif" font-size="13.5" fill="#111">Console</text>
+</svg>

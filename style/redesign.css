@@ -1589,3 +1589,8 @@ body {
   .builds-grid > .builds-pitch,
   .videos-lead > .builds-pitch { padding-top: 20px; }
 }
+
+/* Easter egg: the little IRIX console icon in the footer leads to /indy/ */
+.footer-egg { display: inline-flex; align-items: center; opacity: 0.45; transition: opacity 0.2s ease, transform 0.2s ease; }
+.footer-egg img { display: block; }
+.footer-egg:hover, .footer-egg:focus-visible { opacity: 1; transform: translateY(-1px); }
