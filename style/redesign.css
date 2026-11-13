@@ -197,6 +197,43 @@ body {
   color: var(--accent);
 }
 
+/* Console icon + invitation to the 3D Indy page */
+.hero-indy {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  color: var(--text);
+}
+.hero-indy img {
+  display: block;
+  flex: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease;
+}
+.hero-indy:hover img, .hero-indy:focus-visible img { transform: translateY(-2px) rotate(-2deg); }
+.hero-indy > span { display: flex; flex-direction: column; gap: 2px; }
+.hero-indy-kicker {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-indy-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+}
+.hero-indy:hover .hero-indy-title { color: var(--accent); }
+.hero-indy-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
 /* ===================================================
    Featured Work Grid
    =================================================== */
